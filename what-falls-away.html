@@ -12,13 +12,29 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #f7f6f3;
+  --bg: #f6f9fc;
   --surface: #ffffff;
-  --border: #e4e2dc;
-  --text: #1a1a18;
-  --text-muted: #6b6966;
-  --accent: #2d5a27;
-  --accent-light: #eef3ec;
+  --border: #e3e8ee;
+  --text: #0a2540;
+  --text-secondary: #425466;
+  --text-tertiary: #8898aa;
+  --accent: #635bff;
+  --accent-hover: #5148e6;
+  --shadow-sm: 0 2px 5px 0 rgba(50,50,93,.1), 0 1px 1px 0 rgba(0,0,0,.07);
+  --shadow-md: 0 6px 12px -2px rgba(50,50,93,.12), 0 3px 7px -3px rgba(0,0,0,.08);
+  --shadow-lg: 0 13px 27px -5px rgba(50,50,93,.2), 0 8px 16px -8px rgba(0,0,0,.15);
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -29,21 +45,50 @@ body {
   line-height: 1.7;
 }
 
-nav {
-  padding: 20px 24px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+/* Sticky glassmorphic nav */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
-  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(246, 249, 252, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-sans);
 }
 
-nav a {
+.sticky-nav a {
   font-size: 0.85rem;
-  color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s var(--ease);
 }
 
-nav a:hover { color: var(--accent); }
+.sticky-nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.sticky-nav .nav-brand {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sticky-nav .nav-brand:hover {
+  color: var(--accent);
+}
+
+.sticky-nav .nav-section {
+  color: var(--text-secondary);
+}
+
+.sticky-nav .nav-section:hover {
+  color: var(--accent);
+}
 
 article {
   max-width: 640px;
@@ -56,18 +101,19 @@ article {
 }
 
 h1 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: clamp(1.6rem, 4.5vw, 2.2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.3;
   margin-bottom: 16px;
+  color: var(--text);
 }
 
 .essay-meta {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
 }
 
 .essay-body p {
@@ -77,12 +123,13 @@ h1 {
 }
 
 .essay-body h2 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 1.1rem;
   font-weight: 700;
   margin-top: 44px;
   margin-bottom: 20px;
   letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 .essay-body em { font-style: italic; }
@@ -91,13 +138,14 @@ h1 {
 .falls-away {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 24px 28px;
   margin: 24px 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .falls-away .item-label {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -117,7 +165,7 @@ h1 {
   margin-top: 56px;
   padding-top: 32px;
   border-top: 1px solid var(--border);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .essay-nav-label {
@@ -125,7 +173,7 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-tertiary);
   margin-bottom: 6px;
 }
 
@@ -134,9 +182,16 @@ h1 {
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
+  transition: color 0.2s var(--ease);
 }
 
 .essay-nav a:hover { text-decoration: underline; }
+
+.essay-nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
 
 .essay-footer {
   margin-top: 24px;
@@ -148,42 +203,66 @@ h1 {
 }
 
 .essay-footer a {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.85rem;
   color: var(--accent);
   text-decoration: none;
+  transition: color 0.2s var(--ease);
 }
 
 .essay-footer a:hover { text-decoration: underline; }
 
+.essay-footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
 .share-btn {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: var(--font-sans);
   background: transparent;
   border: 1px solid var(--border);
   padding: 8px 18px;
   border-radius: 6px;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 
 .share-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.share-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 footer {
   border-top: 1px solid var(--border);
   padding: 40px 24px;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  color: var(--text-muted);
+  font-family: var(--font-sans);
+  color: var(--text-tertiary);
   font-size: 0.85rem;
 }
 
-footer a { color: var(--accent); text-decoration: none; }
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
 footer a:hover { text-decoration: underline; }
+
+footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
 
 @media (max-width: 600px) {
   article { padding: 24px 20px 80px; }
@@ -193,8 +272,9 @@ footer a:hover { text-decoration: underline; }
 </head>
 <body>
 
-<nav>
-  <a href="https://nickxma.github.io/mindfulness-essays/">← Essays</a>
+<nav class="sticky-nav">
+  <a href="https://nickxma.github.io/paradox-of-acceptance/" class="nav-brand">Paradox of Acceptance</a>
+  <a href="https://nickxma.github.io/mindfulness-essays/" class="nav-section">Essays</a>
 </nav>
 
 <article>
@@ -262,7 +342,7 @@ footer a:hover { text-decoration: underline; }
   </div>
 
   <div class="essay-footer">
-    <a href="https://nickxma.github.io/paradox-of-acceptance/">← Back to all tools</a>
+    <a href="https://nickxma.github.io/mindfulness-essays/">← Back to essays</a>
     <button class="share-btn" onclick="copyLink()">Share this essay</button>
   </div>
 </article>
