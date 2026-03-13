@@ -52,11 +52,65 @@ h1 { font-family: var(--font-sans); font-size: clamp(1.6rem, 4.5vw, 2.2rem); fon
 .share-btn { font-family: var(--font-sans); background: transparent; border: 1px solid var(--border); padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; color: var(--text-secondary); cursor: pointer; transition: border-color 0.2s var(--ease), color 0.2s var(--ease), box-shadow 0.2s var(--ease); }
 .share-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--shadow-sm); }
 .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; font-family: var(--font-sans); color: var(--text-tertiary); font-size: 0.85rem; }
-footer a { color: var(--accent); text-decoration: none; transition: color 0.2s var(--ease); }
-footer a:hover { text-decoration: underline; }
-footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
-@media (max-width: 600px) { article { padding: 24px 20px 80px; } }
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px 40px;
+  font-family: var(--font-sans);
+}
+.footer-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+.footer-brand-link {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.footer-brand-link:hover { opacity: 0.7; }
+.footer-tagline {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.footer-nav {
+  display: flex;
+  gap: 40px;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footer-col h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
+}
+.footer-col a {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-col a:hover {
+  color: var(--text);
+}
+@media (max-width: 600px) {
+  article { padding: 24px 20px 80px; }
+  .footer-inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
 </style>
 </head>
 <body>
@@ -187,8 +241,30 @@ footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; 
   </div>
 </article>
 
-<footer>
-  <p>Part of <a href="https://paradoxofacceptance.xyz/paradox-of-acceptance/">Paradox of Acceptance</a></p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a href="https://paradoxofacceptance.xyz/paradox-of-acceptance/" class="footer-brand-link">Paradox of Acceptance</a>
+      <p class="footer-tagline">Making mindfulness more legible<br>without pretending it is simple.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div class="footer-col">
+        <h4>Interactive</h4>
+        <a href="https://paradoxofacceptance.xyz/meditation-quiz/">Quiz</a>
+        <a href="https://paradoxofacceptance.xyz/meditation-recommender/">Recommender</a>
+        <a href="https://paradoxofacceptance.xyz/meditation-debates/">Debates</a>
+        <a href="https://paradoxofacceptance.xyz/teacher-debates/">Teacher Debates</a>
+        <a href="https://paradoxofacceptance.xyz/concept-explorer/">Concept Explorer</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-fit/">Practice Fit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Reading</h4>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-essays/">Essays</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-pointers/">Pointers</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+      </div>
+    </nav>
+  </div>
 </footer>
 
 <script>
