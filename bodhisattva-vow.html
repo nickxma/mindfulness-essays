@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the Bodhisattva Vow Assumes — Paradox of Acceptance</title>
+<meta name="description" content="The Bodhisattva vow is a beautiful ethical commitment. When you look at what it actually assumes, you find yourself on different epistemic ground than when you're watching thoughts arise.">
+<meta property="og:title" content="What the Bodhisattva Vow Assumes">
+<meta property="og:description" content="Buddhist claims exist on a spectrum from directly inspectable to requiring faith. The Bodhisattva vow lives near one end.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://paradoxofacceptance.xyz/favicon/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://paradoxofacceptance.xyz/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="https://paradoxofacceptance.xyz/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="https://paradoxofacceptance.xyz/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #FFFFFF;
+  color: #555;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- NAV ---- */
+.poa-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  border-bottom: 1px solid #EEE;
+  width: 100%;
+}
+.poa-nav-brand {
+  font-family: 'Newsreader', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+}
+.poa-nav-right { display: flex; align-items: center; gap: 24px; }
+.poa-nav-links { display: flex; align-items: center; gap: 36px; }
+.poa-nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.poa-nav-links a:hover { color: #111; }
+.poa-nav-links a.active { color: #111; }
+.theme-toggle { background: none; border: none; cursor: pointer; padding: 2px; display: flex; align-items: center; gap: 6px; }
+.toggle-track { width: 40px; height: 22px; background: #DDDDDD; border-radius: 11px; position: relative; transition: background 0.25s; display: block; flex-shrink: 0; }
+[data-theme="dark"] .toggle-track { background: #555555; }
+.toggle-knob { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+[data-theme="dark"] .toggle-knob { transform: translateX(18px); background: #EEEEEE; }
+.moon-icon { color: #CCCCCC; flex-shrink: 0; transition: color 0.25s; display: block; }
+[data-theme="dark"] .moon-icon { color: #DDDDDD; }
+
+/* ---- ARTICLE ---- */
+article {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 24px 100px;
+}
+
+.essay-header { margin-bottom: 48px; }
+
+.kicker {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-weight: 500;
+  color: #111;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.essay-subtitle {
+  font-family: 'Newsreader', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.essay-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #999;
+}
+
+.essay-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.essay-body h2 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.essay-body em { font-style: italic; }
+
+.separator {
+  text-align: center;
+  color: #DDD;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  margin: 40px 0;
+}
+
+/* ---- SPECTRUM COMPONENT ---- */
+.spectrum-wrap {
+  margin: 40px 0 48px;
+  background: #FAFAFA;
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
+  padding: 28px 28px 24px;
+}
+
+.spectrum-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.spectrum-label-end {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spectrum-label-end.left { color: #111; }
+.spectrum-label-end.right { color: #BBBBBB; }
+
+.spectrum-axis-line {
+  height: 2px;
+  background: linear-gradient(to right, #111 0%, #DDDDDD 100%);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.spectrum-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.spectrum-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  line-height: 1;
+  position: relative;
+}
+
+.spectrum-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.spectrum-chip.active {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Color stops across the spectrum */
+.chip-1 { background: #111111; color: #FFFFFF; }
+.chip-2 { background: #2D2D2D; color: #FFFFFF; }
+.chip-3 { background: #555555; color: #FFFFFF; }
+.chip-4 { background: #777777; color: #FFFFFF; }
+.chip-5 { background: #999999; color: #FFFFFF; }
+.chip-6 { background: #AAAAAA; color: #FFFFFF; }
+.chip-7 { background: #C0C0C0; color: #111111; }
+.chip-8 { background: #DDDDDD; color: #111111; }
+
+.spectrum-detail {
+  display: none;
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #444;
+}
+
+.spectrum-detail.visible { display: block; }
+
+.spectrum-detail strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.spectrum-detail .verdict {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.verdict-inspectable { background: #111; color: #FFF; }
+.verdict-plausible { background: #888; color: #FFF; }
+.verdict-faith { background: #DDDDDD; color: #555; }
+
+.spectrum-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #BBBBBB;
+  text-align: center;
+  margin-top: 16px;
+  letter-spacing: 0.03em;
+}
+
+/* ---- ESSAY NAV + FOOTER ---- */
+.essay-nav {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid #EEE;
+}
+
+.essay-nav-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.essay-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.15s;
+}
+
+.essay-nav a:hover { text-decoration: underline; }
+
+.essay-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.essay-footer a {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #111;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.essay-footer a:hover { text-decoration: underline; }
+
+.share-btn {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.share-btn:hover { opacity: 0.85; }
+
+/* ---- FOOTER ---- */
+.site-footer {
+  border-top: 1px solid #EEE;
+  padding: 48px 48px 40px;
+}
+.footer-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+.footer-brand-link {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #111;
+  text-decoration: none;
+}
+.footer-brand-link:hover { opacity: 0.7; }
+.footer-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #999;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.footer-nav { display: flex; gap: 40px; }
+.footer-col { display: flex; flex-direction: column; gap: 6px; }
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+  margin-bottom: 4px;
+}
+.footer-col a {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: #111; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .poa-nav { padding: 24px 24px; }
+  article { padding: 48px 24px 80px; }
+  .site-footer { padding: 48px 24px 40px; }
+}
+@media (max-width: 600px) {
+  .poa-nav { padding: 20px 20px; }
+  .poa-nav-brand { font-size: 18px; }
+  .poa-nav-links { gap: 24px; }
+  .poa-nav-links a { font-size: 12px; }
+  article { padding: 48px 20px 60px; }
+  .spectrum-wrap { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 32px; }
+  .site-footer { padding: 40px 20px 32px; }
+}
+
+/* ---- TOC + DARK MODE ---- */
+@media (min-width: 980px) {
+  article { max-width: 920px; }
+  .essay-content-layout { display: flex; gap: 52px; align-items: flex-start; }
+  .toc-sidebar { width: 156px; flex-shrink: 0; position: sticky; top: 52px; align-self: flex-start; }
+  .essay-body { flex: 1; min-width: 0; max-width: 640px; }
+}
+.toc-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CCCCCC; margin-bottom: 16px; }
+.toc-nav { list-style: none; }
+.toc-nav a { font-family: 'Inter', sans-serif; font-size: 12.5px; color: #BBBBBB; text-decoration: none; display: block; padding: 5px 0 5px 12px; line-height: 1.4; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s, padding-left 0.2s; }
+.toc-nav a:hover { color: #555555; padding-left: 16px; }
+.toc-nav a.active { color: #111111; font-weight: 500; border-left-color: #111111; padding-left: 16px; }
+
+[data-theme="dark"] body { background: #111111; color: #EEEEEE; }
+[data-theme="dark"] h1, [data-theme="dark"] h2 { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav { background: #111111; border-color: #222222; }
+[data-theme="dark"] .poa-nav-brand { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav-links a { color: #888888; }
+[data-theme="dark"] .poa-nav-links a.active, [data-theme="dark"] .poa-nav-links a:hover { color: #EEEEEE; }
+[data-theme="dark"] .essay-body p { color: #BBBBBB; }
+[data-theme="dark"] .essay-body h2 { color: #EEEEEE; }
+[data-theme="dark"] .kicker { color: #555555; }
+[data-theme="dark"] .essay-subtitle { color: #666666; }
+[data-theme="dark"] .essay-meta { color: #555555; }
+[data-theme="dark"] .separator { color: #333333; }
+[data-theme="dark"] .spectrum-wrap { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .spectrum-detail { background: #222222; border-color: #333333; color: #BBBBBB; }
+[data-theme="dark"] .spectrum-detail strong { color: #EEEEEE; }
+[data-theme="dark"] .spectrum-hint { color: #444444; }
+[data-theme="dark"] .verdict-faith { background: #333333; color: #AAAAAA; }
+[data-theme="dark"] .essay-nav { border-color: #222222; }
+[data-theme="dark"] .essay-nav-label { color: #555555; }
+[data-theme="dark"] .essay-nav a { color: #EEEEEE; }
+[data-theme="dark"] .site-footer { background: #111111; border-color: #222222; }
+[data-theme="dark"] .footer-brand-link { color: #EEEEEE; }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col h4 { color: #888888; }
+[data-theme="dark"] .footer-tagline { color: #555555; }
+[data-theme="dark"] .share-btn { background: #333333; color: #EEEEEE; }
+[data-theme="dark"] .toc-label { color: #555555; }
+[data-theme="dark"] .toc-nav a { color: #444444; }
+[data-theme="dark"] .toc-nav a:hover { color: #888888; padding-left: 16px; }
+[data-theme="dark"] .toc-nav a.active { color: #EEEEEE; border-left-color: #EEEEEE; }
+</style>
+</head>
+<body>
+
+<nav class="poa-nav">
+  <a href="https://paradoxofacceptance.xyz/" class="poa-nav-brand">Paradox of Acceptance</a>
+  <div class="poa-nav-right">
+    <div class="poa-nav-links">
+      <a href="https://paradoxofacceptance.xyz/">Tools</a>
+      <a href="https://paradoxofacceptance.xyz/mindfulness-essays/" class="active">Essays</a>
+      <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <span class="toggle-track"><span class="toggle-knob"></span></span>
+      <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<article>
+  <div class="essay-header">
+    <div class="kicker">Essay · Buddhism &amp; Metaphysics</div>
+    <h1>What the Bodhisattva Vow Assumes</h1>
+    <p class="essay-subtitle">An exploration of where Buddhist claims fall on the line between direct experience and faith.</p>
+    <div class="essay-meta">Paradox of Acceptance · Essays</div>
+  </div>
+
+<div class="essay-content-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-nav">
+      <li><a href="#the-vow">The Vow</a></li>
+      <li><a href="#the-test">An Inspectability Test</a></li>
+      <li><a href="#the-spectrum">The Spectrum</a></li>
+      <li><a href="#where-it-falls">Where the Vow Falls</a></li>
+      <li><a href="#two-ways">Two Ways to Hold It</a></li>
+    </ul>
+  </aside>
+  <div class="essay-body">
+
+    <h2 id="the-vow">The Vow</h2>
+
+    <p>The vow is easy to say. In its traditional form, something like: may I attain full awakening not for myself but for the liberation of all sentient beings — in this and every future lifetime, until not one remains.</p>
+
+    <p>As an ethical aspiration, it's genuinely striking. It takes the compassion that contemplative practice seems to cultivate and turns it into a structural commitment. Not just: I will be kinder. But: I orient my entire existence — across however many lifetimes it takes — toward others. The Bodhisattva ideal, in Mahayana Buddhism, is the practitioner who could exit the cycle of rebirth entirely but chooses to remain, returning again and again, until every sentient being in every realm is liberated.</p>
+
+    <p>I encountered this recently and found myself wanting to take it seriously. The problem is that taking it seriously requires noticing what the vow assumes.</p>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="the-test">An Inspectability Test</h2>
+
+    <p>There's a useful test for any claim: can you look and check?</p>
+
+    <p>The non-dual insight — the thing sitting practice points at — passes this test cleanly. When a teacher says the sense of being a separate self is constructed, that thoughts arise without a thinker, that there's no central agent behind your experience — you can actually look. The territory is accessible to direct observation. The result, if the claim is right, is the same regardless of what you believed before you sat down. Someone who has never heard of Buddhism can sit down, watch their experience closely, and find out whether the claim holds up.</p>
+
+    <p>This is what makes the empirical core of Buddhism unusual among religious frameworks. Not that it's infallible. Not that it's easy to see. But that it's <em>checkable</em>. The same logic applies to impermanence, to the relationship between craving and suffering, to the constructed nature of the self. These are observations, not doctrines. You can verify them through direct investigation rather than accepting them on authority.</p>
+
+    <p>The question I kept returning to with the Bodhisattva vow is whether any part of it passes this test.</p>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="the-spectrum">The Spectrum</h2>
+
+    <p>Not all Buddhist claims are the same kind of thing. Some can be verified in a single sitting. Others require extraordinary meditative development. Others require prior cosmological beliefs that the practice itself never validates. Here's a rough map.</p>
+
+    <p><em>Click any claim to expand it.</em></p>
+
+    <div class="spectrum-wrap">
+      <div class="spectrum-head">
+        <span class="spectrum-label-end left">Directly inspectable</span>
+        <span class="spectrum-label-end right">Requires faith</span>
+      </div>
+      <div class="spectrum-axis-line"></div>
+      <div class="spectrum-chips">
+        <button class="spectrum-chip chip-1" data-id="craving">Suffering from craving</button>
+        <button class="spectrum-chip chip-2" data-id="impermanence">Impermanence</button>
+        <button class="spectrum-chip chip-3" data-id="noself">No-self</button>
+        <button class="spectrum-chip chip-4" data-id="compassion">Compassion from practice</button>
+        <button class="spectrum-chip chip-5" data-id="karma-life">Karma within a lifetime</button>
+        <button class="spectrum-chip chip-6" data-id="rebirth">Rebirth</button>
+        <button class="spectrum-chip chip-7" data-id="karma-lives">Karma across lifetimes</button>
+        <button class="spectrum-chip chip-8" data-id="vow">The Bodhisattva Vow</button>
+      </div>
+      <div class="spectrum-detail" id="detail-craving">
+        <strong>Suffering from craving</strong>
+        Notice craving arise — toward food, validation, relief. Notice the quality of experience that accompanies it. You can verify this in a single sitting without any background belief. The claim is: craving generates a particular kind of suffering, and releasing craving generates relief. This is available to anyone who looks.
+        <span class="verdict verdict-inspectable">Directly inspectable</span>
+      </div>
+      <div class="spectrum-detail" id="detail-impermanence">
+        <strong>Impermanence</strong>
+        Every phenomenon that arises passes. The sound, the sensation, the thought, the mood — none of it stays. You can watch this directly. No cosmology required. The only thing you need is a reliable method for observing your own experience closely enough to notice.
+        <span class="verdict verdict-inspectable">Directly inspectable</span>
+      </div>
+      <div class="spectrum-detail" id="detail-noself">
+        <strong>No-self</strong>
+        The claim that the sense of being a unified, continuous self is a construction — not a fact about the territory but an appearance in experience. You can look for the self and not find it. This is what the practice is largely pointing at. The territory is available; the method is direct investigation.
+        <span class="verdict verdict-inspectable">Directly inspectable</span>
+      </div>
+      <div class="spectrum-detail" id="detail-compassion">
+        <strong>Compassion arises from practice</strong>
+        The claim that as practice deepens, a natural orientation toward the wellbeing of others emerges — not as an ethical stance imposed from outside but as something that arises on its own. This is widely reported and plausible. It's harder to verify than impermanence because it unfolds over years, not sittings. But it's the kind of claim that could be tested in principle.
+        <span class="verdict verdict-plausible">Plausible, not yet verified</span>
+      </div>
+      <div class="spectrum-detail" id="detail-karma-life">
+        <strong>Karma within a lifetime</strong>
+        In its most secular form: actions have consequences that shape future experience. Habitual patterns create grooves. The quality of your attention and intention shapes outcomes over time. This is broadly compatible with secular psychology and doesn't require any prior cosmological commitment. Whether "karma" is the right word for it is a different question.
+        <span class="verdict verdict-plausible">Broadly compatible with secular view</span>
+      </div>
+      <div class="spectrum-detail" id="detail-rebirth">
+        <strong>Rebirth</strong>
+        The claim that consciousness — or something like it — continues beyond the death of the body and arises again in a new form. This is not checkable through ordinary first-person observation. In principle it makes empirical predictions (about what survives, what transfers), but no method currently available can test them. It occupies an ambiguous middle ground: neither confirmed nor falsified, not obviously magical but not analogous to impermanence either.
+        <span class="verdict verdict-faith">Requires prior belief</span>
+      </div>
+      <div class="spectrum-detail" id="detail-karma-lives">
+        <strong>Karma across lifetimes</strong>
+        Once you accept rebirth, the claim that karma — accumulated through action, intention, and understanding — carries across those lifetimes follows. But it inherits all the epistemic problems of rebirth and adds more: you'd need not just continuity of something across lives but a mechanism of transfer and a way for present-life experience to reflect past-life causes. None of this is accessible to practice or investigation in any ordinary sense.
+        <span class="verdict verdict-faith">Requires prior belief</span>
+      </div>
+      <div class="spectrum-detail" id="detail-vow">
+        <strong>The Bodhisattva Vow</strong>
+        To attain full awakening not for oneself but for the liberation of all sentient beings — across all future lifetimes, until every being in every realm is free. This is the most ambitious commitment in any religious tradition. It presupposes: rebirth (yours and others'), karma across those lives, sentient beings in multiple realms (humans, animals, and traditionally, hungry ghosts, hell-beings, gods), and a timeline measured in eons. <em>None</em> of this can be verified through practice. You're holding an intention toward a cosmological outcome whose premises can't be inspected.
+        <span class="verdict verdict-faith">Full cosmological framework</span>
+      </div>
+      <p class="spectrum-hint">tap any claim to expand · sorted left to right by inspectability</p>
+    </div>
+
+    <p>The claims on the left share a property: you can verify them without background beliefs, without decades of practice, and without any particular faith commitment. The claims on the right require something different. You're not extending direct observation. You're accepting a framework.</p>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="where-it-falls">Where the Vow Falls</h2>
+
+    <p>The Bodhisattva vow doesn't just assume rebirth — it requires a specific cosmological architecture. Multiple realms, beings across those realms, karma that accumulates and transfers across lives, a timeline measured in eons. The "all sentient beings" in the vow includes, in the traditional formulation, beings in hell realms, hungry ghost realms, animal realms, god realms, and human realms across infinite cycles of time.</p>
+
+    <p>None of this can be verified in a sitting. Or through years of practice. Or through any method currently available to practitioners at any level of development.</p>
+
+    <p>This isn't unique to Buddhism. It's the standard structure of religious metaphysics: claims about what happens after death, about unseen beings and realms, about cosmic-scale processes that operate beyond ordinary perception. Believing in rebirth, karma across lifetimes, and liberation across infinite realms requires approximately the same epistemic posture as believing in resurrection or divine judgment. The content differs. The architecture is the same — you're accepting claims about a world you can't directly access, based on teaching and tradition.</p>
+
+    <p>There's something genuinely interesting here. The tradition is aware of the paradox. The Diamond Sutra's resolution is that the vow dissolves the very self that would accomplish it — to liberate all beings is to see through the illusion of a self that liberates and beings that are liberated. The vow is performative, not literal. But if that's the resolution, it quietly evacuates most of the vow's content, including the cosmology that made it feel like such a serious commitment in the first place.</p>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="two-ways">Two Ways to Hold It</h2>
+
+    <p>Practitioners who find the inspectable core of Buddhism genuinely compelling end up in an odd position when they encounter the vow. Two honest responses seem available.</p>
+
+    <p>The first: hold the vow as motivation, not metaphysics. The commitment to orient toward the liberation of others, to not treat practice as a private project — that's real and livable without the cosmological frame. What remains is something like: <em>I aspire to practice in a way that benefits others, not just myself</em>. That's a genuine ethical stance. It doesn't require infinite lifetimes or beings in other realms to be meaningful.</p>
+
+    <p>The second: take the metaphysics seriously, and accept that you're operating on faith. This is coherent. Religious traditions have always asked practitioners to hold some claims on faith while verifying others through experience. The question is whether you're doing this knowingly — whether you've made a decision, rather than simply inherited an assumption.</p>
+
+    <p>The position to watch out for is the middle one: chanting the full vow with its traditional cosmological weight, while privately treating it as "just metaphor," without examining whether that assumption costs anything. The vow can bear either reading. What it can't do is be both simultaneously.</p>
+
+    <div class="separator">· · ·</div>
+
+    <p>The inspectable core of Buddhism — the parts that survive the test — is genuinely unusual. The claim that the self is constructed, that suffering tracks craving, that impermanence runs through everything: these are available to anyone who looks carefully enough. That's worth something.</p>
+
+    <p>The Bodhisattva vow is a different kind of thing. Built on the tradition's most expansive vision of what compassion could mean, and on a cosmological framework that, taken literally, asks exactly what any other religion asks: to believe, on faith, in a world you can't directly access. Knowing that doesn't make the vow less beautiful. It makes it more honest to hold.</p>
+
+  </div>
+</div>
+
+  <div class="essay-nav">
+    <div class="essay-nav-label">Also in this series</div>
+    <a href="cherry-picking-problem.html">The Cherry-Picking Problem &rarr;</a>
+    <a href="should-you-get-into-mindfulness.html">Should You Get Into Mindfulness? &rarr;</a>
+    <a href="losing-spiritual-urgency.html">Losing Spiritual Urgency &rarr;</a>
+  </div>
+
+  <div class="essay-footer">
+    <a href="https://paradoxofacceptance.xyz/mindfulness-essays/">← Back to essays</a>
+    <button class="share-btn" onclick="copyLink()">Share this essay</button>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a href="https://paradoxofacceptance.xyz/" class="footer-brand-link">Paradox of Acceptance</a>
+      <p class="footer-tagline">Tools for the questions practice raises.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div class="footer-col">
+        <h4>Interactive</h4>
+        <a href="https://paradoxofacceptance.xyz/meditation-quiz/">Quiz</a>
+        <a href="https://paradoxofacceptance.xyz/meditation-recommender/">Recommender</a>
+        <a href="https://paradoxofacceptance.xyz/meditation-debates/">Debates</a>
+        <a href="https://paradoxofacceptance.xyz/teacher-debates/">Teacher Debates</a>
+        <a href="https://paradoxofacceptance.xyz/concept-explorer/">Concept Explorer</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-fit/">Practice Fit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Reading</h4>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-essays/">Essays</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-pointers/">Pointers</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+      </div>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function copyLink() {
+  var text = '\u201CWhat the Bodhisattva Vow Assumes\u201D\n\nhttps://paradoxofacceptance.xyz/mindfulness-essays/bodhisattva-vow.html';
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.querySelector('.share-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Share this essay'; }, 2000);
+  }).catch(function() {});
+}
+</script>
+
+<script>
+// Spectrum interaction
+(function() {
+  var chips = document.querySelectorAll('.spectrum-chip');
+  var details = document.querySelectorAll('.spectrum-detail');
+  chips.forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      var id = 'detail-' + chip.getAttribute('data-id');
+      var detail = document.getElementById(id);
+      var isOpen = chip.classList.contains('active');
+      // Close all
+      chips.forEach(function(c) { c.classList.remove('active'); });
+      details.forEach(function(d) { d.classList.remove('visible'); });
+      // Open clicked (if it was closed)
+      if (!isOpen && detail) {
+        chip.classList.add('active');
+        detail.classList.add('visible');
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// Scrollspy
+(function() {
+  var links = document.querySelectorAll('.toc-nav a');
+  if (!links.length) return;
+  var ids = Array.from(links).map(function(a) { return a.getAttribute('href').slice(1); });
+  function update() {
+    var top = window.scrollY + 100;
+    var cur = ids[0];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.offsetTop <= top) cur = ids[i];
+    }
+    links.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', update, {passive: true});
+  update();
+})();
+</script>
+
+<script>
+// Theme toggle
+(function() {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+    else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+  });
+})();
+</script>
+
+</body>
+</html>

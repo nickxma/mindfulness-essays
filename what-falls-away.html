@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -67,6 +68,38 @@ body {
 }
 .poa-nav-links a:hover { color: #111; }
 .poa-nav-links a.active { color: #111; }
+
+/* ---- DARK MODE TOGGLE ---- */
+.poa-nav-right { display: flex; align-items: center; gap: 24px; }
+.theme-toggle { background: none; border: none; cursor: pointer; padding: 2px; display: flex; align-items: center; gap: 6px; }
+.toggle-track { width: 40px; height: 22px; background: #DDDDDD; border-radius: 11px; position: relative; transition: background 0.25s; display: block; flex-shrink: 0; }
+[data-theme="dark"] .toggle-track { background: #555555; }
+.toggle-knob { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+[data-theme="dark"] .toggle-knob { transform: translateX(18px); background: #EEEEEE; }
+.moon-icon { color: #CCCCCC; flex-shrink: 0; transition: color 0.25s; display: block; }
+[data-theme="dark"] .moon-icon { color: #DDDDDD; }
+
+/* ---- DARK MODE COLORS ---- */
+[data-theme="dark"] body { background: #111111; color: #EEEEEE; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav { background: #111111; border-color: #222222; }
+[data-theme="dark"] .poa-nav-brand { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav-links a { color: #888888; }
+[data-theme="dark"] .poa-nav-links a.active, [data-theme="dark"] .poa-nav-links a:hover { color: #EEEEEE; }
+[data-theme="dark"] .essay-body p { color: #CCCCCC; }
+[data-theme="dark"] .essay-meta { color: #777777; }
+[data-theme="dark"] .falls-away { background: #1A1A1A; border-color: #333333; }
+[data-theme="dark"] .falls-away p { color: #CCCCCC; }
+[data-theme="dark"] .item-label { color: #777777; }
+[data-theme="dark"] .essay-nav { border-color: #222222; }
+[data-theme="dark"] .essay-nav a { color: #888888; }
+[data-theme="dark"] .essay-nav a:hover { color: #EEEEEE; }
+[data-theme="dark"] .share-btn { border-color: #444444; color: #888888; }
+[data-theme="dark"] .share-btn:hover { border-color: #888888; color: #EEEEEE; }
+[data-theme="dark"] .site-footer, [data-theme="dark"] footer { background: #111111; border-color: #222222; }
+[data-theme="dark"] .footer-brand-link { color: #EEEEEE; }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col h4 { color: #888888; }
+[data-theme="dark"] .footer-tagline { color: #555555; }
 
 /* ---- ARTICLE ---- */
 article {
@@ -351,10 +384,16 @@ h1 {
 
 <nav class="poa-nav">
   <a href="https://paradoxofacceptance.xyz/" class="poa-nav-brand">Paradox of Acceptance</a>
-  <div class="poa-nav-links">
-    <a href="https://paradoxofacceptance.xyz/">Tools</a>
-    <a href="https://paradoxofacceptance.xyz/mindfulness-essays/" class="active">Essays</a>
-    <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+  <div class="poa-nav-right">
+    <div class="poa-nav-links">
+      <a href="https://paradoxofacceptance.xyz/">Tools</a>
+      <a href="https://paradoxofacceptance.xyz/mindfulness-essays/" class="active">Essays</a>
+      <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <span class="toggle-track"><span class="toggle-knob"></span></span>
+    <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -454,6 +493,17 @@ h1 {
   </div>
 </footer>
 
+<script>
+(function() {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+    else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+  });
+})();
+</script>
 <script>
 function copyLink() {
   var text = '\u201CWhat Falls Away?\u201D\n\nhttps://paradoxofacceptance.xyz/mindfulness-essays/what-falls-away.html';
