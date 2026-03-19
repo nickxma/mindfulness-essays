@@ -187,8 +187,8 @@ h1 {
 
 /* ---- RESPONSE LEVELS ---- */
 .levels-wrap {
-  border: 1px solid #E8E8E8;
-  border-radius: 6px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
   overflow: hidden;
   margin: 32px 0;
 }
@@ -206,13 +206,33 @@ h1 {
 .level-row.active { background: #FAFAFA; }
 
 .level-marker {
-  width: 4px;
+  width: 5px;
   flex-shrink: 0;
 }
 
 .level-body {
-  padding: 16px 18px;
+  padding: 18px 20px;
   flex: 1;
+}
+
+.level-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.level-number {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .level-label {
@@ -221,12 +241,11 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 6px;
 }
 
 .level-response {
   font-family: 'Newsreader', serif;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-style: italic;
   color: #111;
   line-height: 1.5;
@@ -235,7 +254,7 @@ h1 {
 
 .level-expand {
   display: none;
-  padding: 0 18px 16px 18px;
+  padding: 0 20px 18px 20px;
 }
 
 .level-expand.open { display: block; }
@@ -246,25 +265,30 @@ h1 {
   line-height: 1.7;
   color: #666;
   margin-bottom: 0;
-  border-top: 1px solid #F0F0F0;
+  border-top: 1px solid #E8E8E8;
   padding-top: 14px;
 }
 
-/* Level colors */
+/* Level colors — gray to teal progression */
 .level-1 .level-marker { background: #DDDDDD; }
 .level-1 .level-label { color: #AAAAAA; }
+.level-1 .level-number { background: #F0F0F0; color: #BBBBBB; }
 
-.level-2 .level-marker { background: #AAAAAA; }
+.level-2 .level-marker { background: #BBBBBB; }
 .level-2 .level-label { color: #888888; }
+.level-2 .level-number { background: #EEEEEE; color: #999999; }
 
-.level-3 .level-marker { background: #777777; }
+.level-3 .level-marker { background: #888888; }
 .level-3 .level-label { color: #666666; }
+.level-3 .level-number { background: #E8E8E8; color: #777777; }
 
 .level-4 .level-marker { background: #3A8A7A; }
 .level-4 .level-label { color: #3A8A7A; }
+.level-4 .level-number { background: #E0F0ED; color: #3A8A7A; }
 
 .level-5 .level-marker { background: #1A5A4E; }
 .level-5 .level-label { color: #1A5A4E; }
+.level-5 .level-number { background: #D4EDE8; color: #1A5A4E; }
 
 .levels-hint {
   font-family: 'Inter', sans-serif;
@@ -385,6 +409,21 @@ h1 {
 [data-theme="dark"] .level-response { color: #EEEEEE; }
 [data-theme="dark"] .level-expand p { color: #AAAAAA; border-color: #2A2A2A; }
 [data-theme="dark"] .levels-hint { color: #444444; border-color: #2A2A2A; }
+[data-theme="dark"] .level-1 .level-number { background: #2A2A2A; color: #666666; }
+[data-theme="dark"] .level-2 .level-number { background: #2A2A2A; color: #777777; }
+[data-theme="dark"] .level-3 .level-number { background: #2A2A2A; color: #999999; }
+[data-theme="dark"] .level-4 .level-number { background: #1A3A34; color: #5DB8A5; }
+[data-theme="dark"] .level-5 .level-number { background: #1A3A34; color: #7CCFBB; }
+[data-theme="dark"] .level-1 .level-label { color: #555555; }
+[data-theme="dark"] .level-2 .level-label { color: #666666; }
+[data-theme="dark"] .level-3 .level-label { color: #777777; }
+[data-theme="dark"] .level-4 .level-label { color: #5DB8A5; }
+[data-theme="dark"] .level-5 .level-label { color: #7CCFBB; }
+[data-theme="dark"] .level-1 .level-marker { background: #333333; }
+[data-theme="dark"] .level-2 .level-marker { background: #444444; }
+[data-theme="dark"] .level-3 .level-marker { background: #555555; }
+[data-theme="dark"] .level-4 .level-marker { background: #3A8A7A; }
+[data-theme="dark"] .level-5 .level-marker { background: #5DB8A5; }
 [data-theme="dark"] .essay-nav { border-color: #222222; }
 [data-theme="dark"] .essay-nav a { color: #EEEEEE; }
 [data-theme="dark"] .essay-nav-label { color: #555555; }
@@ -451,7 +490,7 @@ h1 {
       <div class="level-row level-1" data-target="lx-1">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-label">The automatic answer</div>
+          <div class="level-header"><span class="level-number">1</span><span class="level-label">The automatic answer</span></div>
           <div class="level-response">"Good, pretty busy. You?"</div>
         </div>
       </div>
@@ -462,7 +501,7 @@ h1 {
       <div class="level-row level-2" data-target="lx-2">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-label">The honest conventional answer</div>
+          <div class="level-header"><span class="level-number">2</span><span class="level-label">The honest conventional answer</span></div>
           <div class="level-response">"Honestly? Kind of anxious about work. Not sleeping great."</div>
         </div>
       </div>
@@ -473,7 +512,7 @@ h1 {
       <div class="level-row level-3" data-target="lx-3">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-label">The practitioner hedge</div>
+          <div class="level-header"><span class="level-number">3</span><span class="level-label">The practitioner hedge</span></div>
           <div class="level-response">"There's some stuff going on, but I feel pretty equanimous about it."</div>
         </div>
       </div>
@@ -484,7 +523,7 @@ h1 {
       <div class="level-row level-4" data-target="lx-4">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-label">The split showing</div>
+          <div class="level-header"><span class="level-number">4</span><span class="level-label">The split showing</span></div>
           <div class="level-response">"Right now? Actually fine. But there's a lot I'd change about my situation."</div>
         </div>
       </div>
@@ -495,7 +534,7 @@ h1 {
       <div class="level-row level-5" data-target="lx-5">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-label">The fully honest answer</div>
+          <div class="level-header"><span class="level-number">5</span><span class="level-label">The fully honest answer</span></div>
           <div class="level-response">"Nothing is wrong with this moment. But I don't think that's what you're asking."</div>
         </div>
       </div>
