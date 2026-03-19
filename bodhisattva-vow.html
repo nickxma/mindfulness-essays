@@ -154,7 +154,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .spectrum-label-end {
@@ -172,99 +172,85 @@ h1 {
   height: 2px;
   background: linear-gradient(to right, #111 0%, #DDDDDD 100%);
   border-radius: 2px;
-  margin-bottom: 24px;
+  margin-bottom: 4px;
 }
 
-.spectrum-chips {
+/* ---- SPECTRUM ROWS ---- */
+.spectrum-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 0;
-}
-
-.spectrum-chip {
-  display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  border: none;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #F0F0F0;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  line-height: 1;
-  position: relative;
+  transition: background 0.15s;
 }
 
-.spectrum-chip:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+.spectrum-row:last-of-type {
+  border-bottom: none;
 }
 
-.spectrum-chip.active {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+.spectrum-row:hover .spectrum-name {
+  color: #000;
 }
 
-/* Color stops across the spectrum */
-.chip-1 { background: #111111; color: #FFFFFF; }
-.chip-2 { background: #2D2D2D; color: #FFFFFF; }
-.chip-3 { background: #555555; color: #FFFFFF; }
-.chip-4 { background: #777777; color: #FFFFFF; }
-.chip-5 { background: #999999; color: #FFFFFF; }
-.chip-6 { background: #AAAAAA; color: #FFFFFF; }
-.chip-7 { background: #C0C0C0; color: #111111; }
-.chip-8 { background: #DDDDDD; color: #111111; }
+.spectrum-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
-.spectrum-detail {
-  display: none;
-  margin-top: 16px;
-  padding: 16px 18px;
-  background: #FFFFFF;
-  border: 1px solid #E0E0E0;
-  border-radius: 6px;
+.spectrum-name {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  line-height: 1.65;
-  color: #444;
-}
-
-.spectrum-detail.visible { display: block; }
-
-.spectrum-detail strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   color: #111;
-  margin-bottom: 6px;
+  flex: 1;
+  transition: color 0.15s;
 }
 
-.spectrum-detail .verdict {
-  font-size: 11px;
+.spectrum-name.bold { font-weight: 600; }
+
+.spectrum-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-top: 10px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.verdict-inspectable { background: #111; color: #FFF; }
-.verdict-plausible { background: #888; color: #FFF; }
-.verdict-faith { background: #DDDDDD; color: #555; }
+.badge-inspectable { background: #1A7A6E; color: #FFF; }
+.badge-plausible { background: #B87333; color: #FFF; }
+.badge-faith { background: #5C4FAF; color: #FFF; }
 
-.spectrum-hint {
+.spectrum-expand {
+  display: none;
+  padding: 14px 26px 14px 26px;
+  background: #FAFAFA;
+  border-bottom: 1px solid #F0F0F0;
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #BBBBBB;
-  text-align: center;
-  margin-top: 16px;
-  letter-spacing: 0.03em;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #555;
 }
+
+.spectrum-expand.open { display: block; }
+
+/* dark mode spectrum */
+[data-theme="dark"] .spectrum-wrap { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .spectrum-label-end.left { color: #EEEEEE; }
+[data-theme="dark"] .spectrum-row { border-color: #2A2A2A; }
+[data-theme="dark"] .spectrum-name { color: #EEEEEE; }
+[data-theme="dark"] .spectrum-row:hover .spectrum-name { color: #FFFFFF; }
+[data-theme="dark"] .spectrum-expand { background: #222222; border-color: #2A2A2A; color: #AAAAAA; }
+[data-theme="dark"] .badge-faith { background: #4A3D9A; color: #DDD; }
+[data-theme="dark"] .badge-inspectable { background: #156057; color: #DDD; }
+[data-theme="dark"] .badge-plausible { background: #9A5E28; color: #DDD; }
 
 /* ---- ESSAY NAV + FOOTER ---- */
 .essay-nav {
@@ -483,7 +469,7 @@ h1 {
 
     <p>As an ethical aspiration, it's genuinely striking. It takes the compassion that contemplative practice seems to cultivate and turns it into a structural commitment. Not just: I will be kinder. But: I orient my entire existence — across however many lifetimes it takes — toward others. The Bodhisattva ideal, in Mahayana Buddhism, is the practitioner who could exit the cycle of rebirth entirely but chooses to remain, returning again and again, until every sentient being in every realm is liberated.</p>
 
-    <p>I encountered this recently and found myself wanting to take it seriously. The problem is that taking it seriously requires noticing what the vow assumes.</p>
+    <p>I encountered this recently and found myself wanting to take it seriously — not dismiss it, not treat it as decoration. Doing that, though, meant sitting with what the vow actually assumes.</p>
 
     <div class="separator">· · ·</div>
 
@@ -495,7 +481,7 @@ h1 {
 
     <p>This is what makes the empirical core of Buddhism unusual among religious frameworks. Not that it's infallible. Not that it's easy to see. But that it's <em>checkable</em>. The same logic applies to impermanence, to the relationship between craving and suffering, to the constructed nature of the self. These are observations, not doctrines. You can verify them through direct investigation rather than accepting them on authority.</p>
 
-    <p>The question I kept returning to with the Bodhisattva vow is whether any part of it passes this test.</p>
+    <p>The question I kept returning to: which parts of the Bodhisattva vow pass this test, and which don't?</p>
 
     <div class="separator">· · ·</div>
 
@@ -511,57 +497,62 @@ h1 {
         <span class="spectrum-label-end right">Requires faith</span>
       </div>
       <div class="spectrum-axis-line"></div>
-      <div class="spectrum-chips">
-        <button class="spectrum-chip chip-1" data-id="craving">Suffering from craving</button>
-        <button class="spectrum-chip chip-2" data-id="impermanence">Impermanence</button>
-        <button class="spectrum-chip chip-3" data-id="noself">No-self</button>
-        <button class="spectrum-chip chip-4" data-id="compassion">Compassion from practice</button>
-        <button class="spectrum-chip chip-5" data-id="karma-life">Karma within a lifetime</button>
-        <button class="spectrum-chip chip-6" data-id="rebirth">Rebirth</button>
-        <button class="spectrum-chip chip-7" data-id="karma-lives">Karma across lifetimes</button>
-        <button class="spectrum-chip chip-8" data-id="vow">The Bodhisattva Vow</button>
+
+      <div class="spectrum-row" data-target="exp-craving">
+        <span class="spectrum-dot" style="background:#1A7A6E;"></span>
+        <span class="spectrum-name">Suffering from craving</span>
+        <span class="spectrum-badge badge-inspectable">Inspectable</span>
       </div>
-      <div class="spectrum-detail" id="detail-craving">
-        <strong>Suffering from craving</strong>
-        Notice craving arise — toward food, validation, relief. Notice the quality of experience that accompanies it. You can verify this in a single sitting without any background belief. The claim is: craving generates a particular kind of suffering, and releasing craving generates relief. This is available to anyone who looks.
-        <span class="verdict verdict-inspectable">Directly inspectable</span>
+      <div class="spectrum-expand" id="exp-craving">Notice craving arise — toward food, validation, relief. Notice the quality of experience that accompanies it. You can verify this in a single sitting without any background belief. The claim is: craving generates a particular kind of suffering, and releasing craving generates relief. This is available to anyone who looks.</div>
+
+      <div class="spectrum-row" data-target="exp-impermanence">
+        <span class="spectrum-dot" style="background:#2A9080;"></span>
+        <span class="spectrum-name">Impermanence</span>
+        <span class="spectrum-badge badge-inspectable">Inspectable</span>
       </div>
-      <div class="spectrum-detail" id="detail-impermanence">
-        <strong>Impermanence</strong>
-        Every phenomenon that arises passes. The sound, the sensation, the thought, the mood — none of it stays. You can watch this directly. No cosmology required. The only thing you need is a reliable method for observing your own experience closely enough to notice.
-        <span class="verdict verdict-inspectable">Directly inspectable</span>
+      <div class="spectrum-expand" id="exp-impermanence">Every phenomenon that arises passes. The sound, the sensation, the thought, the mood — none of it stays. You can watch this directly. No cosmology required. The only thing you need is a reliable method for observing your own experience closely enough to notice.</div>
+
+      <div class="spectrum-row" data-target="exp-noself">
+        <span class="spectrum-dot" style="background:#4AAF9E;"></span>
+        <span class="spectrum-name">No-self</span>
+        <span class="spectrum-badge badge-inspectable">Inspectable</span>
       </div>
-      <div class="spectrum-detail" id="detail-noself">
-        <strong>No-self</strong>
-        The claim that the sense of being a unified, continuous self is a construction — not a fact about the territory but an appearance in experience. You can look for the self and not find it. This is what the practice is largely pointing at. The territory is available; the method is direct investigation.
-        <span class="verdict verdict-inspectable">Directly inspectable</span>
+      <div class="spectrum-expand" id="exp-noself">The claim that the sense of being a unified, continuous self is a construction — not a fact about the territory but an appearance in experience. You can look for the self and not find it. This is what the practice is largely pointing at. The territory is available; the method is direct investigation.</div>
+
+      <div class="spectrum-row" data-target="exp-compassion">
+        <span class="spectrum-dot" style="background:#B87333;"></span>
+        <span class="spectrum-name">Compassion from practice</span>
+        <span class="spectrum-badge badge-plausible">Plausible</span>
       </div>
-      <div class="spectrum-detail" id="detail-compassion">
-        <strong>Compassion arises from practice</strong>
-        The claim that as practice deepens, a natural orientation toward the wellbeing of others emerges — not as an ethical stance imposed from outside but as something that arises on its own. This is widely reported and plausible. It's harder to verify than impermanence because it unfolds over years, not sittings. But it's the kind of claim that could be tested in principle.
-        <span class="verdict verdict-plausible">Plausible, not yet verified</span>
+      <div class="spectrum-expand" id="exp-compassion">The claim that as practice deepens, a natural orientation toward the wellbeing of others emerges — not as an ethical stance imposed from outside but as something that arises on its own. Widely reported, and plausible in the sense that something like this does seem to happen. It's harder to verify than impermanence because it unfolds over years, not sittings — but it's the kind of claim that could, in principle, be tested.</div>
+
+      <div class="spectrum-row" data-target="exp-karma-life">
+        <span class="spectrum-dot" style="background:#D4913A;"></span>
+        <span class="spectrum-name">Karma within a lifetime</span>
+        <span class="spectrum-badge badge-plausible">Plausible</span>
       </div>
-      <div class="spectrum-detail" id="detail-karma-life">
-        <strong>Karma within a lifetime</strong>
-        In its most secular form: actions have consequences that shape future experience. Habitual patterns create grooves. The quality of your attention and intention shapes outcomes over time. This is broadly compatible with secular psychology and doesn't require any prior cosmological commitment. Whether "karma" is the right word for it is a different question.
-        <span class="verdict verdict-plausible">Broadly compatible with secular view</span>
+      <div class="spectrum-expand" id="exp-karma-life">In its most secular form: actions have consequences that shape future experience. Habitual patterns create grooves. The quality of your attention and intention shapes outcomes over time. This is broadly compatible with secular psychology and doesn't require any prior cosmological commitment.</div>
+
+      <div class="spectrum-row" data-target="exp-rebirth">
+        <span class="spectrum-dot" style="background:#7B6BBD;"></span>
+        <span class="spectrum-name">Rebirth</span>
+        <span class="spectrum-badge badge-faith">Requires faith</span>
       </div>
-      <div class="spectrum-detail" id="detail-rebirth">
-        <strong>Rebirth</strong>
-        The claim that consciousness — or something like it — continues beyond the death of the body and arises again in a new form. This is not checkable through ordinary first-person observation. In principle it makes empirical predictions (about what survives, what transfers), but no method currently available can test them. It occupies an ambiguous middle ground: neither confirmed nor falsified, not obviously magical but not analogous to impermanence either.
-        <span class="verdict verdict-faith">Requires prior belief</span>
+      <div class="spectrum-expand" id="exp-rebirth">The claim that consciousness — or something like it — continues beyond the death of the body and arises again in a new form. This is not checkable through ordinary first-person observation. It occupies a genuinely ambiguous middle ground: neither confirmed nor falsified, not obviously magical, but not analogous to impermanence either. No feedback loop exists — you can't update the belief through direct experience.</div>
+
+      <div class="spectrum-row" data-target="exp-karma-lives">
+        <span class="spectrum-dot" style="background:#9B8DD4;"></span>
+        <span class="spectrum-name">Karma across lifetimes</span>
+        <span class="spectrum-badge badge-faith">Requires faith</span>
       </div>
-      <div class="spectrum-detail" id="detail-karma-lives">
-        <strong>Karma across lifetimes</strong>
-        Once you accept rebirth, the claim that karma — accumulated through action, intention, and understanding — carries across those lifetimes follows. But it inherits all the epistemic problems of rebirth and adds more: you'd need not just continuity of something across lives but a mechanism of transfer and a way for present-life experience to reflect past-life causes. None of this is accessible to practice or investigation in any ordinary sense.
-        <span class="verdict verdict-faith">Requires prior belief</span>
+      <div class="spectrum-expand" id="exp-karma-lives">Once you accept rebirth, the claim that karma carries across those lifetimes follows. But it inherits all the epistemic problems of rebirth and adds more: you'd need not just continuity of something across lives but a mechanism of transfer and a way for present-life experience to reflect past-life causes. None of this is accessible to practice or investigation in any ordinary sense.</div>
+
+      <div class="spectrum-row" data-target="exp-vow">
+        <span class="spectrum-dot" style="background:#C0B4E8;"></span>
+        <span class="spectrum-name bold">The Bodhisattva Vow</span>
+        <span class="spectrum-badge badge-faith">Requires faith</span>
       </div>
-      <div class="spectrum-detail" id="detail-vow">
-        <strong>The Bodhisattva Vow</strong>
-        To attain full awakening not for oneself but for the liberation of all sentient beings — across all future lifetimes, until every being in every realm is free. This is the most ambitious commitment in any religious tradition. It presupposes: rebirth (yours and others'), karma across those lives, sentient beings in multiple realms (humans, animals, and traditionally, hungry ghosts, hell-beings, gods), and a timeline measured in eons. <em>None</em> of this can be verified through practice. You're holding an intention toward a cosmological outcome whose premises can't be inspected.
-        <span class="verdict verdict-faith">Full cosmological framework</span>
-      </div>
-      <p class="spectrum-hint">tap any claim to expand · sorted left to right by inspectability</p>
+      <div class="spectrum-expand" id="exp-vow">To attain full awakening not for oneself but for the liberation of all sentient beings — across all future lifetimes, until every being in every realm is free. It presupposes: rebirth (yours and others'), karma across those lives, sentient beings in multiple realms, and a timeline measured in eons. <em>None</em> of this can be verified through practice. You're holding an intention toward a cosmological outcome whose premises can't be inspected — and that's worth knowing, even if it doesn't change whether you take the vow.</div>
     </div>
 
     <p>The claims on the left share a property: you can verify them without background beliefs, without decades of practice, and without any particular faith commitment. The claims on the right require something different. You're not extending direct observation. You're accepting a framework.</p>
@@ -572,29 +563,31 @@ h1 {
 
     <p>The Bodhisattva vow doesn't just assume rebirth — it requires a specific cosmological architecture. Multiple realms, beings across those realms, karma that accumulates and transfers across lives, a timeline measured in eons. The "all sentient beings" in the vow includes, in the traditional formulation, beings in hell realms, hungry ghost realms, animal realms, god realms, and human realms across infinite cycles of time.</p>
 
-    <p>None of this can be verified in a sitting. Or through years of practice. Or through any method currently available to practitioners at any level of development.</p>
+    <p>None of this can be verified in a sitting. Or through years of practice. Or through any method currently available to practitioners at any level of development. There's no feedback loop — no way to update these beliefs through direct observation. You accept them on the basis of teaching and tradition.</p>
 
-    <p>This isn't unique to Buddhism. It's the standard structure of religious metaphysics: claims about what happens after death, about unseen beings and realms, about cosmic-scale processes that operate beyond ordinary perception. Believing in rebirth, karma across lifetimes, and liberation across infinite realms requires approximately the same epistemic posture as believing in resurrection or divine judgment. The content differs. The architecture is the same — you're accepting claims about a world you can't directly access, based on teaching and tradition.</p>
+    <p>This is worth naming clearly, not as a criticism but as a category distinction. The inspectable claims and the cosmological claims are structurally different kinds of things. One set you can test; the other you inherit. Both exist inside the same tradition, and from the outside they can be easy to conflate.</p>
 
-    <p>There's something genuinely interesting here. The tradition is aware of the paradox. The Diamond Sutra's resolution is that the vow dissolves the very self that would accomplish it — to liberate all beings is to see through the illusion of a self that liberates and beings that are liberated. The vow is performative, not literal. But if that's the resolution, it quietly evacuates most of the vow's content, including the cosmology that made it feel like such a serious commitment in the first place.</p>
+    <p>The tradition itself is aware of the tension. The Diamond Sutra's resolution is that the vow dissolves the very self that would accomplish it — to liberate all beings is to see through the illusion of a self that liberates and beings that are liberated. The vow is performative, not literal. It's a beautiful move, and it may be right. But it quietly evacuates most of the vow's cosmological content, which is worth noticing if you're reciting the full traditional form.</p>
 
     <div class="separator">· · ·</div>
 
     <h2 id="two-ways">Two Ways to Hold It</h2>
 
-    <p>Practitioners who find the inspectable core of Buddhism genuinely compelling end up in an odd position when they encounter the vow. Two honest responses seem available.</p>
+    <p>Practitioners who find the inspectable core of Buddhism genuinely compelling end up in an interesting position when they encounter the vow. At least two honest responses seem available.</p>
 
-    <p>The first: hold the vow as motivation, not metaphysics. The commitment to orient toward the liberation of others, to not treat practice as a private project — that's real and livable without the cosmological frame. What remains is something like: <em>I aspire to practice in a way that benefits others, not just myself</em>. That's a genuine ethical stance. It doesn't require infinite lifetimes or beings in other realms to be meaningful.</p>
+    <p>The first: hold the vow as an instrument rather than a metaphysical claim. The commitment to orient toward the liberation of others, to not treat practice as a private project — that's real and livable without the cosmological frame. And it actually works. Orienting attention toward others reduces self-referential processing. Committing to practice on behalf of others rather than just yourself shapes behavior in ways that are themselves inspectable. What remains when you strip the cosmology is something like: <em>I aspire to practice in a way that benefits others, not just myself</em>. That's a genuine ethical stance, and its effects can be felt without infinite lifetimes or beings in other realms.</p>
 
-    <p>The second: take the metaphysics seriously, and accept that you're operating on faith. This is coherent. Religious traditions have always asked practitioners to hold some claims on faith while verifying others through experience. The question is whether you're doing this knowingly — whether you've made a decision, rather than simply inherited an assumption.</p>
+    <p>The second: take the metaphysics seriously, and accept that you're operating on faith. This is coherent too. Religious traditions have always asked practitioners to hold some claims on faith while verifying others through experience. The question is whether you're doing this knowingly — whether you've made a conscious decision, rather than simply inherited an assumption without examining it.</p>
 
-    <p>The position to watch out for is the middle one: chanting the full vow with its traditional cosmological weight, while privately treating it as "just metaphor," without examining whether that assumption costs anything. The vow can bear either reading. What it can't do is be both simultaneously.</p>
+    <p>The position worth examining is the middle one: reciting the full vow with its traditional cosmological weight while privately treating it as "just metaphor," without having thought through what that means. The vow can bear either reading. The thing to avoid is holding both simultaneously without noticing.</p>
 
     <div class="separator">· · ·</div>
 
-    <p>The inspectable core of Buddhism — the parts that survive the test — is genuinely unusual. The claim that the self is constructed, that suffering tracks craving, that impermanence runs through everything: these are available to anyone who looks carefully enough. That's worth something.</p>
+    <p>The inspectable core of Buddhism — the parts that survive the test — is genuinely unusual. The claim that the self is constructed, that suffering tracks craving, that impermanence runs through everything: these are available to anyone who looks carefully enough. That's worth holding onto.</p>
 
-    <p>The Bodhisattva vow is a different kind of thing. Built on the tradition's most expansive vision of what compassion could mean, and on a cosmological framework that, taken literally, asks exactly what any other religion asks: to believe, on faith, in a world you can't directly access. Knowing that doesn't make the vow less beautiful. It makes it more honest to hold.</p>
+    <p>The Bodhisattva vow sits elsewhere. It's built on the tradition's most expansive vision of what compassion could become — and on a cosmological framework that, taken literally, requires the same kind of faith as any other religious cosmology. That's not a dismissal. It's an observation about what kind of thing the vow is. Knowing where it sits on the map doesn't make it less beautiful. If anything, it makes the commitment more deliberate.</p>
+
+    <p><em>If you've taken the vow — or have thought carefully about how you hold the cosmology — I'd be interested in your perspective. The question feels worth staying with.</em></p>
 
   </div>
 </div>
@@ -652,20 +645,20 @@ function copyLink() {
 <script>
 // Spectrum interaction
 (function() {
-  var chips = document.querySelectorAll('.spectrum-chip');
-  var details = document.querySelectorAll('.spectrum-detail');
-  chips.forEach(function(chip) {
-    chip.addEventListener('click', function() {
-      var id = 'detail-' + chip.getAttribute('data-id');
-      var detail = document.getElementById(id);
-      var isOpen = chip.classList.contains('active');
+  var rows = document.querySelectorAll('.spectrum-row');
+  rows.forEach(function(row) {
+    row.addEventListener('click', function() {
+      var targetId = row.getAttribute('data-target');
+      var panel = document.getElementById(targetId);
+      if (!panel) return;
+      var isOpen = panel.classList.contains('open');
       // Close all
-      chips.forEach(function(c) { c.classList.remove('active'); });
-      details.forEach(function(d) { d.classList.remove('visible'); });
-      // Open clicked (if it was closed)
-      if (!isOpen && detail) {
-        chip.classList.add('active');
-        detail.classList.add('visible');
+      rows.forEach(function(r) { r.classList.remove('active'); });
+      document.querySelectorAll('.spectrum-expand').forEach(function(p) { p.classList.remove('open'); });
+      // Toggle clicked
+      if (!isOpen) {
+        row.classList.add('active');
+        panel.classList.add('open');
       }
     });
   });
