@@ -252,22 +252,62 @@ h1 {
   margin-bottom: 0;
 }
 
-.level-expand {
-  display: none;
-  padding: 0 20px 18px 20px;
+.level-chevron {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-left: auto;
+  color: #CCCCCC;
+  transition: transform 0.25s, color 0.15s;
 }
 
-.level-expand.open { display: block; }
+.level-row:hover .level-chevron { color: #999999; }
+.level-row.active .level-chevron { transform: rotate(180deg); color: #666666; }
 
-.level-expand p {
+.level-expand {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px 0 25px;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.level-expand.open {
+  max-height: 400px;
+  padding: 0 20px 20px 25px;
+}
+
+.level-expand-sep {
+  height: 1px;
+  background: #E8E8E8;
+  margin-bottom: 14px;
+}
+
+.level-detail {
+  margin-bottom: 14px;
+}
+.level-detail:last-child { margin-bottom: 0; }
+
+.level-detail-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.level-detail-label.communicates { color: #3A8A7A; }
+.level-detail-label.leaves-out { color: #AAAAAA; }
+
+.level-detail p {
   font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   line-height: 1.7;
-  color: #666;
   margin-bottom: 0;
-  border-top: 1px solid #E8E8E8;
-  padding-top: 14px;
 }
+
+.level-detail.communicates p { color: #555; }
+.level-detail.leaves-out p { color: #888; }
 
 /* Level colors — gray to teal progression */
 .level-1 .level-marker { background: #DDDDDD; }
@@ -407,8 +447,15 @@ h1 {
 [data-theme="dark"] .level-row { border-color: #2A2A2A; }
 [data-theme="dark"] .level-row:hover, [data-theme="dark"] .level-row.active { background: #222222; }
 [data-theme="dark"] .level-response { color: #EEEEEE; }
-[data-theme="dark"] .level-expand p { color: #AAAAAA; border-color: #2A2A2A; }
+[data-theme="dark"] .level-expand-sep { background: #2A2A2A; }
+[data-theme="dark"] .level-detail-label.communicates { color: #5DB8A5; }
+[data-theme="dark"] .level-detail-label.leaves-out { color: #555555; }
+[data-theme="dark"] .level-detail.communicates p { color: #AAAAAA; }
+[data-theme="dark"] .level-detail.leaves-out p { color: #666666; }
 [data-theme="dark"] .levels-hint { color: #444444; border-color: #2A2A2A; }
+[data-theme="dark"] .level-chevron { color: #333333; }
+[data-theme="dark"] .level-row:hover .level-chevron { color: #555555; }
+[data-theme="dark"] .level-row.active .level-chevron { color: #888888; }
 [data-theme="dark"] .level-1 .level-number { background: #2A2A2A; color: #666666; }
 [data-theme="dark"] .level-2 .level-number { background: #2A2A2A; color: #777777; }
 [data-theme="dark"] .level-3 .level-number { background: #2A2A2A; color: #999999; }
@@ -490,56 +537,96 @@ h1 {
       <div class="level-row level-1" data-target="lx-1">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-header"><span class="level-number">1</span><span class="level-label">The automatic answer</span></div>
+          <div class="level-header"><span class="level-number">1</span><span class="level-label">The automatic answer</span><svg class="level-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="level-response">"Good, pretty busy. You?"</div>
         </div>
       </div>
       <div class="level-expand" id="lx-1">
-        <p>What it communicates: you're alive, not in crisis, and you're redirecting attention back to them. What it leaves out: everything. This is the social handshake, not a report. Both people know this. Neither minds. The problem arises when you start to notice that this is what you almost always say — regardless of what's actually happening.</p>
+        <div class="level-expand-sep"></div>
+        <div class="level-detail communicates">
+          <div class="level-detail-label communicates">What it communicates</div>
+          <p>You're alive, not in crisis, and you're redirecting attention back to them.</p>
+        </div>
+        <div class="level-detail leaves-out">
+          <div class="level-detail-label leaves-out">What it leaves out</div>
+          <p>Everything. This is the social handshake, not a report. Both people know this. Neither minds. The problem arises when you start to notice that this is what you almost always say — regardless of what's actually happening.</p>
+        </div>
       </div>
 
       <div class="level-row level-2" data-target="lx-2">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-header"><span class="level-number">2</span><span class="level-label">The honest conventional answer</span></div>
+          <div class="level-header"><span class="level-number">2</span><span class="level-label">The honest conventional answer</span><svg class="level-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="level-response">"Honestly? Kind of anxious about work. Not sleeping great."</div>
         </div>
       </div>
       <div class="level-expand" id="lx-2">
-        <p>What it communicates: a real report on your life situation — the stuff that would show up in a journal. What it leaves out: the layer underneath. You might be anxious about work and simultaneously fine. Not fine in a repressed way — actually fine. Present, even. The conventional answer is accurate on its own level but misses the axis that practice opens up.</p>
+        <div class="level-expand-sep"></div>
+        <div class="level-detail communicates">
+          <div class="level-detail-label communicates">What it communicates</div>
+          <p>A real report on your life situation — the stuff that would show up in a journal.</p>
+        </div>
+        <div class="level-detail leaves-out">
+          <div class="level-detail-label leaves-out">What it leaves out</div>
+          <p>The layer underneath. You might be anxious about work and simultaneously fine. Not fine in a repressed way — actually fine. Present, even. The conventional answer is accurate on its own level but misses the axis that practice opens up.</p>
+        </div>
       </div>
 
       <div class="level-row level-3" data-target="lx-3">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-header"><span class="level-number">3</span><span class="level-label">The practitioner hedge</span></div>
+          <div class="level-header"><span class="level-number">3</span><span class="level-label">The practitioner hedge</span><svg class="level-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="level-response">"There's some stuff going on, but I feel pretty equanimous about it."</div>
         </div>
       </div>
       <div class="level-expand" id="lx-3">
-        <p>What it communicates: you've found a vocabulary that gestures at the layer underneath. What it leaves out: "equanimous" is doing a lot of work here, and most people don't know what it means. What they hear is either: stoic (you're suppressing something) or spiritual bypass (you're avoiding the difficulty). The word is accurate; the signal doesn't travel.</p>
+        <div class="level-expand-sep"></div>
+        <div class="level-detail communicates">
+          <div class="level-detail-label communicates">What it communicates</div>
+          <p>You've found a vocabulary that gestures at the layer underneath.</p>
+        </div>
+        <div class="level-detail leaves-out">
+          <div class="level-detail-label leaves-out">What it leaves out</div>
+          <p>"Equanimous" is doing a lot of work here, and most people don't know what it means. What they hear is either: stoic (you're suppressing something) or spiritual bypass (you're avoiding the difficulty). The word is accurate; the signal doesn't travel.</p>
+        </div>
       </div>
 
       <div class="level-row level-4" data-target="lx-4">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-header"><span class="level-number">4</span><span class="level-label">The split showing</span></div>
+          <div class="level-header"><span class="level-number">4</span><span class="level-label">The split showing</span><svg class="level-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="level-response">"Right now? Actually fine. But there's a lot I'd change about my situation."</div>
         </div>
       </div>
       <div class="level-expand" id="lx-4">
-        <p>What it communicates: the distinction between the present moment and the life situation is starting to show up in language. This is the most honest version most people can receive — it honors both levels without collapsing them. What it leaves out: "actually fine" still sounds like a coping mechanism to someone who hasn't had the experience it's pointing at.</p>
+        <div class="level-expand-sep"></div>
+        <div class="level-detail communicates">
+          <div class="level-detail-label communicates">What it communicates</div>
+          <p>The distinction between the present moment and the life situation is starting to show up in language. This is the most honest version most people can receive — it honors both levels without collapsing them.</p>
+        </div>
+        <div class="level-detail leaves-out">
+          <div class="level-detail-label leaves-out">What it leaves out</div>
+          <p>"Actually fine" still sounds like a coping mechanism to someone who hasn't had the experience it's pointing at.</p>
+        </div>
       </div>
 
       <div class="level-row level-5" data-target="lx-5">
         <div class="level-marker"></div>
         <div class="level-body">
-          <div class="level-header"><span class="level-number">5</span><span class="level-label">The fully honest answer</span></div>
+          <div class="level-header"><span class="level-number">5</span><span class="level-label">The fully honest answer</span><svg class="level-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
           <div class="level-response">"Nothing is wrong with this moment. But I don't think that's what you're asking."</div>
         </div>
       </div>
       <div class="level-expand" id="lx-5">
-        <p>What it communicates: exactly what you mean. What it leaves out: the entire conversational contract. This answer is accurate, complete, and socially incoherent. It's the version you can only give if the other person has had the same insight — in which case they probably already know, and the question was never really about how you're doing anyway.</p>
+        <div class="level-expand-sep"></div>
+        <div class="level-detail communicates">
+          <div class="level-detail-label communicates">What it communicates</div>
+          <p>Exactly what you mean.</p>
+        </div>
+        <div class="level-detail leaves-out">
+          <div class="level-detail-label leaves-out">What it leaves out</div>
+          <p>The entire conversational contract. This answer is accurate, complete, and socially incoherent. It's the version you can only give if the other person has had the same insight — in which case they probably already know, and the question was never really about how you're doing anyway.</p>
+        </div>
       </div>
 
       <div class="levels-hint">click any level to expand · from social script to fully honest</div>
