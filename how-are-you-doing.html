@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Are You Doing? — Paradox of Acceptance</title>
+<meta name="description" content="Non-dual insight gives you a true answer to this question. The problem is that it doesn't fit what anyone is asking.">
+<meta property="og:title" content="How Are You Doing?">
+<meta property="og:description" content="If you take non-dual practice seriously, the most honest answer to this question is also the most useless one.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://paradoxofacceptance.xyz/favicon/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://paradoxofacceptance.xyz/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="https://paradoxofacceptance.xyz/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="https://paradoxofacceptance.xyz/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #FFFFFF;
+  color: #555;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---- NAV ---- */
+.poa-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  border-bottom: 1px solid #EEE;
+  width: 100%;
+}
+.poa-nav-brand {
+  font-family: 'Newsreader', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+}
+.poa-nav-right { display: flex; align-items: center; gap: 24px; }
+.poa-nav-links { display: flex; align-items: center; gap: 36px; }
+.poa-nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.poa-nav-links a:hover { color: #111; }
+.poa-nav-links a.active { color: #111; }
+.theme-toggle { background: none; border: none; cursor: pointer; padding: 2px; display: flex; align-items: center; gap: 6px; }
+.toggle-track { width: 40px; height: 22px; background: #DDDDDD; border-radius: 11px; position: relative; transition: background 0.25s; display: block; flex-shrink: 0; }
+[data-theme="dark"] .toggle-track { background: #555555; }
+.toggle-knob { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+[data-theme="dark"] .toggle-knob { transform: translateX(18px); background: #EEEEEE; }
+.moon-icon { color: #CCCCCC; flex-shrink: 0; transition: color 0.25s; display: block; }
+[data-theme="dark"] .moon-icon { color: #DDDDDD; }
+
+/* ---- ARTICLE ---- */
+article {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 24px 100px;
+}
+
+.essay-header { margin-bottom: 48px; }
+
+.kicker {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-weight: 500;
+  color: #111;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.essay-subtitle {
+  font-family: 'Newsreader', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #777;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.essay-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #999;
+}
+
+/* ---- ESSAY LAYOUT ---- */
+.essay-content-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.toc-sidebar {
+  width: 156px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 40px;
+}
+
+.toc-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #CCCCCC;
+  margin-bottom: 12px;
+}
+
+.toc-nav { list-style: none; }
+.toc-nav li { margin-bottom: 2px; }
+.toc-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: #BBBBBB;
+  text-decoration: none;
+  display: block;
+  padding: 5px 0 5px 12px;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, padding-left 0.2s;
+}
+.toc-nav a:hover { color: #555555; padding-left: 16px; }
+.toc-nav a.active { color: #111111; font-weight: 500; border-left-color: #111111; padding-left: 16px; }
+
+.essay-body { flex: 1; min-width: 0; }
+
+@media (max-width: 760px) {
+  .essay-content-layout { flex-direction: column; }
+  .toc-sidebar { display: none; }
+}
+
+/* ---- BODY TYPOGRAPHY ---- */
+.essay-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.essay-body h2 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.essay-body em { font-style: italic; }
+
+.separator {
+  text-align: center;
+  color: #DDD;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  margin: 40px 0;
+}
+
+/* ---- RESPONSE LEVELS ---- */
+.levels-wrap {
+  border: 1px solid #E8E8E8;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 32px 0;
+}
+
+.level-row {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #F0F0F0;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.level-row:last-of-type { border-bottom: none; }
+.level-row:hover { background: #FAFAFA; }
+.level-row.active { background: #FAFAFA; }
+
+.level-marker {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.level-body {
+  padding: 16px 18px;
+  flex: 1;
+}
+
+.level-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.level-response {
+  font-family: 'Newsreader', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #111;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.level-expand {
+  display: none;
+  padding: 0 18px 16px 18px;
+}
+
+.level-expand.open { display: block; }
+
+.level-expand p {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 0;
+  border-top: 1px solid #F0F0F0;
+  padding-top: 14px;
+}
+
+/* Level colors */
+.level-1 .level-marker { background: #DDDDDD; }
+.level-1 .level-label { color: #AAAAAA; }
+
+.level-2 .level-marker { background: #AAAAAA; }
+.level-2 .level-label { color: #888888; }
+
+.level-3 .level-marker { background: #777777; }
+.level-3 .level-label { color: #666666; }
+
+.level-4 .level-marker { background: #3A8A7A; }
+.level-4 .level-label { color: #3A8A7A; }
+
+.level-5 .level-marker { background: #1A5A4E; }
+.level-5 .level-label { color: #1A5A4E; }
+
+.levels-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #BBBBBB;
+  text-align: center;
+  padding: 12px;
+  border-top: 1px solid #F0F0F0;
+  letter-spacing: 0.03em;
+}
+
+/* ---- ESSAY NAV + FOOTER ---- */
+.essay-nav {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid #EEE;
+}
+.essay-nav-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 10px;
+}
+.essay-nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+}
+.essay-nav a:hover { text-decoration: underline; }
+.essay-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.essay-footer a {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #111;
+  text-decoration: none;
+}
+.essay-footer a:hover { text-decoration: underline; }
+.share-btn {
+  font-family: 'Inter', sans-serif;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.share-btn:hover { opacity: 0.85; }
+
+/* ---- FOOTER ---- */
+.site-footer { border-top: 1px solid #EEE; padding: 48px 48px 40px; }
+.footer-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+.footer-brand-link { font-family: 'Newsreader', serif; font-weight: 500; font-size: 18px; color: #111; text-decoration: none; }
+.footer-brand-link:hover { opacity: 0.7; }
+.footer-tagline { font-family: 'Inter', sans-serif; font-size: 13px; color: #999; margin-top: 8px; line-height: 1.5; }
+.footer-nav { display: flex; gap: 40px; }
+.footer-col { display: flex; flex-direction: column; gap: 6px; }
+.footer-col h4 { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 4px; }
+.footer-col a { font-family: 'Inter', sans-serif; font-size: 13px; color: #555; text-decoration: none; transition: color 0.15s; }
+.footer-col a:hover { color: #111; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .poa-nav { padding: 24px 24px; }
+  article { padding: 48px 20px 80px; }
+}
+@media (max-width: 600px) {
+  .poa-nav { padding: 20px 20px; }
+  .poa-nav-brand { font-size: 18px; }
+  .poa-nav-links { gap: 20px; }
+  .footer-inner { flex-direction: column; gap: 32px; }
+  .site-footer { padding: 40px 20px 32px; }
+}
+
+/* ---- DARK MODE TOGGLE ---- */
+/* ---- DARK MODE COLORS ---- */
+[data-theme="dark"] body { background: #111111; color: #EEEEEE; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav { background: #111111; border-color: #222222; }
+[data-theme="dark"] .poa-nav-brand { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav-links a { color: #888888; }
+[data-theme="dark"] .poa-nav-links a.active, [data-theme="dark"] .poa-nav-links a:hover { color: #EEEEEE; }
+[data-theme="dark"] .essay-body p { color: #CCCCCC; }
+[data-theme="dark"] .essay-meta { color: #777777; }
+[data-theme="dark"] .essay-subtitle { color: #888888; }
+[data-theme="dark"] .kicker { color: #555555; }
+[data-theme="dark"] .toc-label { color: #555555; }
+[data-theme="dark"] .toc-nav a { color: #444444; }
+[data-theme="dark"] .toc-nav a:hover { color: #888888; padding-left: 16px; }
+[data-theme="dark"] .toc-nav a.active { color: #EEEEEE; border-left-color: #EEEEEE; }
+[data-theme="dark"] .separator { color: #333; }
+[data-theme="dark"] .levels-wrap { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .level-row { border-color: #2A2A2A; }
+[data-theme="dark"] .level-row:hover, [data-theme="dark"] .level-row.active { background: #222222; }
+[data-theme="dark"] .level-response { color: #EEEEEE; }
+[data-theme="dark"] .level-expand p { color: #AAAAAA; border-color: #2A2A2A; }
+[data-theme="dark"] .levels-hint { color: #444444; border-color: #2A2A2A; }
+[data-theme="dark"] .essay-nav { border-color: #222222; }
+[data-theme="dark"] .essay-nav a { color: #EEEEEE; }
+[data-theme="dark"] .essay-nav-label { color: #555555; }
+[data-theme="dark"] .share-btn { background: #333333; color: #EEEEEE; }
+[data-theme="dark"] .site-footer { background: #111111; border-color: #222222; }
+[data-theme="dark"] .footer-brand-link { color: #EEEEEE; }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col h4 { color: #888888; }
+[data-theme="dark"] .footer-tagline { color: #555555; }
+</style>
+</head>
+<body>
+
+<nav class="poa-nav">
+  <a href="https://paradoxofacceptance.xyz/" class="poa-nav-brand">Paradox of Acceptance</a>
+  <div class="poa-nav-right">
+    <div class="poa-nav-links">
+      <a href="https://paradoxofacceptance.xyz/">Tools</a>
+      <a href="https://paradoxofacceptance.xyz/mindfulness-essays/" class="active">Paradoxes</a>
+      <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <span class="toggle-track"><span class="toggle-knob"></span></span>
+      <svg class="moon-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<article>
+  <div class="essay-header">
+    <div class="kicker">A Paradox · Practice &amp; Ordinary Life</div>
+    <h1>How Are You Doing?</h1>
+    <p class="essay-subtitle">The non-dual insight gives you a true answer to this question. The problem is that it doesn't fit what anyone is actually asking.</p>
+    <div class="essay-meta">Paradox of Acceptance · Paradoxes</div>
+  </div>
+
+<div class="essay-content-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-nav">
+      <li><a href="#the-question">The Question</a></li>
+      <li><a href="#five-responses">Five Responses</a></li>
+      <li><a href="#the-gap">What the Gap Reveals</a></li>
+      <li><a href="#two-ways">Two Ways to Hold It</a></li>
+    </ul>
+  </aside>
+  <div class="essay-body">
+
+    <h2 id="the-question">The Question</h2>
+
+    <p>Your parents call. They ask how you're doing. You've been sitting every day for two years. You've had genuine glimpses of what the practice points at — moments where the sense of a separate self genuinely dropped away, where the quality of experience shifted in a way that's hard to describe. You understand what "nothing is wrong with this moment" actually means, not as a slogan but as something you've verified directly.</p>
+
+    <p>And then your mom asks how you're doing, and you say "good, pretty busy."</p>
+
+    <p>This is the gap. The practice gives you access to a level of description — an honest and accurate one — that is completely unusable in ordinary conversation. The paradox isn't that the insight is false. It's that it answers a different question than the one being asked.</p>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="five-responses">Five Responses</h2>
+
+    <p>Here are five ways to answer "how are you doing?" arranged by how seriously they take the practice. Click any to see what it actually communicates — and what it leaves out.</p>
+
+    <div class="levels-wrap">
+
+      <div class="level-row level-1" data-target="lx-1">
+        <div class="level-marker"></div>
+        <div class="level-body">
+          <div class="level-label">The automatic answer</div>
+          <div class="level-response">"Good, pretty busy. You?"</div>
+        </div>
+      </div>
+      <div class="level-expand" id="lx-1">
+        <p>What it communicates: you're alive, not in crisis, and you're redirecting attention back to them. What it leaves out: everything. This is the social handshake, not a report. Both people know this. Neither minds. The problem arises when you start to notice that this is what you almost always say — regardless of what's actually happening.</p>
+      </div>
+
+      <div class="level-row level-2" data-target="lx-2">
+        <div class="level-marker"></div>
+        <div class="level-body">
+          <div class="level-label">The honest conventional answer</div>
+          <div class="level-response">"Honestly? Kind of anxious about work. Not sleeping great."</div>
+        </div>
+      </div>
+      <div class="level-expand" id="lx-2">
+        <p>What it communicates: a real report on your life situation — the stuff that would show up in a journal. What it leaves out: the layer underneath. You might be anxious about work and simultaneously fine. Not fine in a repressed way — actually fine. Present, even. The conventional answer is accurate on its own level but misses the axis that practice opens up.</p>
+      </div>
+
+      <div class="level-row level-3" data-target="lx-3">
+        <div class="level-marker"></div>
+        <div class="level-body">
+          <div class="level-label">The practitioner hedge</div>
+          <div class="level-response">"There's some stuff going on, but I feel pretty equanimous about it."</div>
+        </div>
+      </div>
+      <div class="level-expand" id="lx-3">
+        <p>What it communicates: you've found a vocabulary that gestures at the layer underneath. What it leaves out: "equanimous" is doing a lot of work here, and most people don't know what it means. What they hear is either: stoic (you're suppressing something) or spiritual bypass (you're avoiding the difficulty). The word is accurate; the signal doesn't travel.</p>
+      </div>
+
+      <div class="level-row level-4" data-target="lx-4">
+        <div class="level-marker"></div>
+        <div class="level-body">
+          <div class="level-label">The split showing</div>
+          <div class="level-response">"Right now? Actually fine. But there's a lot I'd change about my situation."</div>
+        </div>
+      </div>
+      <div class="level-expand" id="lx-4">
+        <p>What it communicates: the distinction between the present moment and the life situation is starting to show up in language. This is the most honest version most people can receive — it honors both levels without collapsing them. What it leaves out: "actually fine" still sounds like a coping mechanism to someone who hasn't had the experience it's pointing at.</p>
+      </div>
+
+      <div class="level-row level-5" data-target="lx-5">
+        <div class="level-marker"></div>
+        <div class="level-body">
+          <div class="level-label">The fully honest answer</div>
+          <div class="level-response">"Nothing is wrong with this moment. But I don't think that's what you're asking."</div>
+        </div>
+      </div>
+      <div class="level-expand" id="lx-5">
+        <p>What it communicates: exactly what you mean. What it leaves out: the entire conversational contract. This answer is accurate, complete, and socially incoherent. It's the version you can only give if the other person has had the same insight — in which case they probably already know, and the question was never really about how you're doing anyway.</p>
+      </div>
+
+      <div class="levels-hint">click any level to expand · from social script to fully honest</div>
+    </div>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="the-gap">What the Gap Reveals</h2>
+
+    <p>The insight the practice points at — the recognition that the present moment is, at some level, always fine — is genuine. It isn't a coping mechanism. It isn't optimism. It's a structural observation about the nature of present-moment experience: that the suffering most people carry is built from thoughts about past and future, not from the raw texture of now. Look directly, without narration, and the quality of experience shifts. That shift is real and repeatable.</p>
+
+    <p>But "how are you doing?" doesn't ask about the texture of the present moment. It asks about your life — your job, your relationships, your trajectory. These exist on a different axis entirely. You can be, in the non-dual sense, perfectly fine, and also have a problem you need to solve, a conversation you're dreading, a situation that genuinely needs to change. Both are true. They don't cancel each other out.</p>
+
+    <p>The paradox is that the practice gives you access to a level of answer that doesn't translate. The more seriously you take it, the wider the gap between what you can honestly say and what the question is built to receive.</p>
+
+    <div class="separator">· · ·</div>
+
+    <h2 id="two-ways">Two Ways to Hold It</h2>
+
+    <p>One response: stop trying to answer the non-dual question when the conventional one is being asked. "How are you doing?" is an invitation into relationship, not a request for a phenomenological report. Let it be what it is. Reserve the deeper answer for contexts where it can land — which mostly means other practitioners, and even then, only when the conversation has actually gone there.</p>
+
+    <p>The other: notice that the gap itself is interesting. Most people move through their days without distinguishing between the quality of the present moment and the condition of their life situation. The practice makes that distinction legible. You start to see that a lot of ordinary distress isn't about this moment — it's about a story about a moment that isn't here yet. That's worth something, even if you can't say it in response to "how are you doing?"</p>
+
+    <p>The position to avoid is the one that collapses the levels in either direction: pretending the life situation is irrelevant because the present moment is fine, or abandoning the insight because it doesn't fit into ordinary conversation. Both levels are real. The practice just adds one that most people don't have a word for.</p>
+
+  </div>
+</div>
+
+  <div class="essay-nav">
+    <div class="essay-nav-label">More paradoxes</div>
+    <a href="cherry-picking-problem.html">The Cherry-Picking Problem &rarr;</a>
+    <a href="bodhisattva-vow.html">What the Bodhisattva Vow Assumes &rarr;</a>
+    <a href="losing-spiritual-urgency.html">Losing Spiritual Urgency &rarr;</a>
+  </div>
+
+  <div class="essay-footer">
+    <a href="https://paradoxofacceptance.xyz/mindfulness-essays/">← Back to paradoxes</a>
+    <button class="share-btn" onclick="copyLink()">Share this</button>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a href="https://paradoxofacceptance.xyz/" class="footer-brand-link">Paradox of Acceptance</a>
+      <p class="footer-tagline">Tools for the questions practice raises.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div class="footer-col">
+        <h4>Interactive</h4>
+        <a href="https://paradoxofacceptance.xyz/meditation-quiz/">Quiz</a>
+        <a href="https://paradoxofacceptance.xyz/meditation-recommender/">Recommender</a>
+        <a href="https://paradoxofacceptance.xyz/meditation-debates/">Debates</a>
+        <a href="https://paradoxofacceptance.xyz/teacher-debates/">Teacher Debates</a>
+        <a href="https://paradoxofacceptance.xyz/concept-explorer/">Concept Explorer</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-fit/">Practice Fit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Reading</h4>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-essays/">Paradoxes</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-pointers/">Pointers</a>
+        <a href="https://paradoxofacceptance.xyz/mindfulness-wiki/">Wiki</a>
+      </div>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Level interaction
+(function() {
+  var rows = document.querySelectorAll('.level-row');
+  rows.forEach(function(row) {
+    row.addEventListener('click', function() {
+      var targetId = row.getAttribute('data-target');
+      var panel = document.getElementById(targetId);
+      if (!panel) return;
+      var isOpen = panel.classList.contains('open');
+      rows.forEach(function(r) { r.classList.remove('active'); });
+      document.querySelectorAll('.level-expand').forEach(function(p) { p.classList.remove('open'); });
+      if (!isOpen) {
+        row.classList.add('active');
+        panel.classList.add('open');
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// Scrollspy
+(function() {
+  var links = document.querySelectorAll('.toc-nav a');
+  if (!links.length) return;
+  var ids = Array.from(links).map(function(a) { return a.getAttribute('href').slice(1); });
+  function update() {
+    var top = window.scrollY + 100;
+    var cur = ids[0];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.offsetTop <= top) cur = ids[i];
+    }
+    links.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', update, {passive: true});
+  update();
+})();
+</script>
+
+<script>
+// Theme toggle
+(function() {
+  var btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
+    else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); }
+  });
+})();
+</script>
+
+<script>
+function copyLink() {
+  var text = '\u201CHow Are You Doing?\u201D\n\nhttps://paradoxofacceptance.xyz/mindfulness-essays/how-are-you-doing.html';
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.querySelector('.share-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Share this'; }, 2000);
+  }).catch(function() {});
+}
+</script>
+
+</body>
+</html>
