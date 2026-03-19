@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -345,6 +346,56 @@ h1 {
   .site-footer { padding: 40px 20px 32px; }
 }
 
+
+/* ---- TOC + DARK MODE ---- */
+@media (min-width: 980px) {
+  article { max-width: 920px; }
+  .essay-content-layout { display: flex; gap: 52px; align-items: flex-start; }
+  .toc-sidebar { width: 156px; flex-shrink: 0; position: sticky; top: 52px; align-self: flex-start; }
+  .essay-body { flex: 1; min-width: 0; max-width: 640px; }
+}
+.toc-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CCCCCC; margin-bottom: 16px; }
+.toc-nav { list-style: none; }
+.toc-nav a { font-family: 'Inter', sans-serif; font-size: 12.5px; color: #BBBBBB; text-decoration: none; display: block; padding: 5px 0 5px 12px; line-height: 1.4; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s, padding-left 0.2s; }
+.toc-nav a:hover { color: #555555; padding-left: 16px; }
+.toc-nav a.active { color: #111111; font-weight: 500; border-left-color: #111111; padding-left: 16px; }
+[data-theme="dark"] body { background: #111111; color: #EEEEEE; }
+[data-theme="dark"] h1, [data-theme="dark"] h2 { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav { background: #111111; border-color: #222222; }
+[data-theme="dark"] .poa-nav-brand { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav-links a { color: #888888; }
+[data-theme="dark"] .poa-nav-links a.active, [data-theme="dark"] .poa-nav-links a:hover { color: #EEEEEE; }
+[data-theme="dark"] .essay-body p { color: #BBBBBB; }
+[data-theme="dark"] .essay-body h2 { color: #EEEEEE; }
+[data-theme="dark"] .essay-meta { color: #555555; }
+[data-theme="dark"] .separator { color: #333333; }
+[data-theme="dark"] .falls-away { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .falls-away .item-label { color: #555555; }
+[data-theme="dark"] .falls-away p { color: #BBBBBB; }
+[data-theme="dark"] .progression { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .stage { border-color: #2A2A2A; }
+[data-theme="dark"] .stage-label, [data-theme="dark"] .stage .needs { color: #555555; }
+[data-theme="dark"] .stage p { color: #BBBBBB; }
+[data-theme="dark"] .essay-nav { border-color: #222222; }
+[data-theme="dark"] .essay-nav-label { color: #555555; }
+[data-theme="dark"] .essay-nav a { color: #EEEEEE; }
+[data-theme="dark"] .site-footer { background: #111111; border-color: #222222; }
+[data-theme="dark"] .footer-brand-link { color: #EEEEEE; }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col h4 { color: #888888; }
+[data-theme="dark"] .footer-tagline { color: #555555; }
+[data-theme="dark"] .share-btn { background: #333333; color: #EEEEEE; }
+[data-theme="dark"] .toc-label { color: #555555; }
+[data-theme="dark"] .toc-nav a { color: #444444; }
+[data-theme="dark"] .toc-nav a:hover { color: #888888; padding-left: 16px; }
+[data-theme="dark"] .toc-nav a.active { color: #EEEEEE; border-left-color: #EEEEEE; }
+.poa-nav-right { display: flex; align-items: center; gap: 24px; }
+.theme-toggle { background: none; border: none; cursor: pointer; padding: 2px; display: flex; align-items: center; gap: 6px; }
+.toggle-track { width: 40px; height: 22px; background: #DDDDDD; border-radius: 11px; position: relative; transition: background 0.25s; display: block; flex-shrink: 0; }
+[data-theme="dark"] .toggle-track { background: #555555; }
+.toggle-knob { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+[data-theme="dark"] .toggle-knob { transform: translateX(18px); background: #EEEEEE; }
+.moon-icon { color: #CCCCCC; flex-shrink: 0; transition: color 0.25s; display: block; }
+[data-theme="dark"] .moon-icon { color: #DDDDDD; }
 </style>
 </head>
 <body>
@@ -364,6 +415,19 @@ h1 {
     <div class="essay-meta">The case for treating meditation like medicine, not vitamins</div>
   </div>
 
+<div class="essay-content-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-nav">
+      <li><a href="#the-default-sales-pitch">The Default Sales Pitch</a></li>
+      <li><a href="#where-it-genuinely-works">Where It Genuinely Works</a></li>
+      <li><a href="#the-part-that-doesnt-get-mentioned">The Part That Doesn't Get Mentioned</a></li>
+      <li><a href="#the-ego-problem">The Ego Problem</a></li>
+      <li><a href="#the-adverse-effects-data">The Adverse Effects Data</a></li>
+      <li><a href="#a-better-question">A Better Question Than "Should I Meditate?"</a></li>
+      <li><a href="#the-missing-off-ramp">The Missing Off-Ramp</a></li>
+    </ul>
+  </aside>
   <div class="essay-body">
     <p>My father takes a GLP-1 medication for weight loss. Every month his doctor adjusts the dosage — up or down, depending on how he's responding. Eventually, the doctor might tell him he doesn't need it anymore. I've been meditating seriously for years and no one — not a teacher, not an app, not a single voice in the growing clinical literature — has ever suggested I might have had enough. One of the few researchers studying meditation's adverse effects puts it simply: all practices are beneficial for some people, some of the time. That qualifier changes everything. Medicine has dosage. Physical training has <em>enough</em>. Mindfulness, somehow, does not.</p>
 
@@ -371,7 +435,7 @@ h1 {
 
     <p>I think mindfulness has a version of this problem, and the way it's currently marketed makes it almost impossible to see.</p>
 
-    <h2>The Default Sales Pitch</h2>
+    <h2 id="the-default-sales-pitch">The Default Sales Pitch</h2>
 
     <p>If you've encountered mindfulness through any of the usual channels — an app, a podcast, a corporate wellness program, a friend who seems suspiciously calm — you've absorbed a particular framing. Meditation reduces stress. It improves focus. It helps with emotional regulation, relationships, sleep. It makes you less reactive, more present, generally better at being a person. The implicit claim is that more practice is always directionally good, and that everyone is a reasonable candidate.</p>
 
@@ -381,7 +445,7 @@ h1 {
 
     <p>The closest analogy might be vitamins: something everyone should probably take, all the time, because there's no real downside and the upside is general wellness. That framing feels comfortable. It also happens to be the framing most favorable to selling subscriptions.</p>
 
-    <h2>Where It Genuinely Works</h2>
+    <h2 id="where-it-genuinely-works">Where It Genuinely Works</h2>
 
     <p>Before going any further, I want to be clear about what I'm not arguing. This is not a debunking piece. The benefits of meditation are real, and for certain people in certain conditions, the practice is genuinely transformative in ways that are hard to overstate.</p>
 
@@ -395,7 +459,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>The Part That Doesn't Get Mentioned</h2>
+    <h2 id="the-part-that-doesnt-get-mentioned">The Part That Doesn't Get Mentioned</h2>
 
     <p>There's a failure mode that the standard mindfulness pitch doesn't cover, and it's almost the inverse of the success case. For some people, meditation functions not as a confrontation with reality but as an escape from it.</p>
 
@@ -407,7 +471,7 @@ h1 {
 
     <p>The Buddhist tradition has a term for the near enemy of equanimity: indifference. The two look similar from the outside — a person who is genuinely at peace and a person who has simply stopped caring can both sit quietly in a room. But the internal experience is completely different, and the downstream effects on their lives diverge sharply. One is freedom. The other is numbness dressed up as wisdom.</p>
 
-    <h2>The Ego Problem</h2>
+    <h2 id="the-ego-problem">The Ego Problem</h2>
 
     <p>There's a deeper structural issue here that I think deserves its own section, because it shapes who benefits from meditation and who doesn't in ways that the standard framing obscures entirely.</p>
 
@@ -423,7 +487,7 @@ h1 {
 
     <p>We need a biological sense of location to function. Healthy physical and psychological boundaries remain necessary no matter how deep the practice goes — every functional person, including the most realized contemplatives, operates with working boundaries. The question is whether you're loosening boundaries you've outgrown or dissolving ones you haven't yet established. The practice itself can't tell the difference. Only honest self-assessment can, and the framework doesn't encourage that assessment because it only has one direction arrow.</p>
 
-    <h2>The Adverse Effects Data</h2>
+    <h2 id="the-adverse-effects-data">The Adverse Effects Data</h2>
 
     <p>There's a small but growing body of research on meditation-related adverse effects that challenges the assumption that meditation is universally gentle. One research team in particular has been systematically cataloging these experiences.</p>
 
@@ -437,7 +501,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>A Better Question Than "Should I Meditate?"</h2>
+    <h2 id="a-better-question-than-should-i-meditate">A Better Question Than "Should I Meditate?"</h2>
 
     <p>If you take the above seriously — and I think there are good reasons to, even if the research is still early — then the question "should I meditate?" starts to look like the wrong question. It's like asking "should I take medication?" without specifying the condition, the medication, or the patient. A better question: what is your current condition, and does this particular treatment match it?</p>
 
@@ -449,7 +513,7 @@ h1 {
 
     <p>No one in the mindfulness ecosystem gives this answer reliably. The framework doesn't have room for "this isn't for you right now" because it starts from the assumption that everyone suffers from the same basic condition — over-identification with a separate self — and the treatment is the same practice, applied with increasing depth over time. If your problem doesn't match that description, you won't hear about it within the system. You'll only notice it in the outcomes: the flatness, the disengagement, the creeping sense that something important has been traded away for something that looks like peace but doesn't quite feel like it.</p>
 
-    <h2>The Missing Off-Ramp</h2>
+    <h2 id="the-missing-offramp">The Missing Off-Ramp</h2>
 
     <p>What I find most telling is not any particular adverse effect or risk factor. It's the structural absence of an off-ramp. Every serious medical intervention has criteria for discontinuation. Physical therapy has discharge goals. Psychotherapy, at least when practiced well, has an endpoint. Even strength training has deload weeks, active recovery, and overtraining syndrome.</p>
 
@@ -465,6 +529,7 @@ h1 {
 
     <p>I don't have a clean resolution for this. I think meditation is genuinely one of the most important things a person can learn, for the right person, at the right time, in the right dosage. I also think the right dosage might be zero, or might be "less than you're currently doing," and that the absence of anyone saying so is itself a kind of information worth paying attention to.</p>
   </div>
+</div>
 
   <div class="essay-nav">
     <div class="essay-nav-label">Also in this series</div>
@@ -516,5 +581,23 @@ function copyLink() {
 }
 </script>
 
+<script>
+(function() {
+  var links = document.querySelectorAll('.toc-nav a');
+  if (!links.length) return;
+  var ids = Array.from(links).map(function(a) { return a.getAttribute('href').slice(1); });
+  function update() {
+    var top = window.scrollY + 100;
+    var cur = ids[0];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.offsetTop <= top) cur = ids[i];
+    }
+    links.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', update, {passive: true});
+  update();
+})();
+</script>
 </body>
 </html>

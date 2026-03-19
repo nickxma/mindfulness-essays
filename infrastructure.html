@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -345,6 +346,56 @@ h1 {
   .site-footer { padding: 40px 20px 32px; }
 }
 
+
+/* ---- TOC + DARK MODE ---- */
+@media (min-width: 980px) {
+  article { max-width: 920px; }
+  .essay-content-layout { display: flex; gap: 52px; align-items: flex-start; }
+  .toc-sidebar { width: 156px; flex-shrink: 0; position: sticky; top: 52px; align-self: flex-start; }
+  .essay-body { flex: 1; min-width: 0; max-width: 640px; }
+}
+.toc-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CCCCCC; margin-bottom: 16px; }
+.toc-nav { list-style: none; }
+.toc-nav a { font-family: 'Inter', sans-serif; font-size: 12.5px; color: #BBBBBB; text-decoration: none; display: block; padding: 5px 0 5px 12px; line-height: 1.4; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s, padding-left 0.2s; }
+.toc-nav a:hover { color: #555555; padding-left: 16px; }
+.toc-nav a.active { color: #111111; font-weight: 500; border-left-color: #111111; padding-left: 16px; }
+[data-theme="dark"] body { background: #111111; color: #EEEEEE; }
+[data-theme="dark"] h1, [data-theme="dark"] h2 { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav { background: #111111; border-color: #222222; }
+[data-theme="dark"] .poa-nav-brand { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav-links a { color: #888888; }
+[data-theme="dark"] .poa-nav-links a.active, [data-theme="dark"] .poa-nav-links a:hover { color: #EEEEEE; }
+[data-theme="dark"] .essay-body p { color: #BBBBBB; }
+[data-theme="dark"] .essay-body h2 { color: #EEEEEE; }
+[data-theme="dark"] .essay-meta { color: #555555; }
+[data-theme="dark"] .separator { color: #333333; }
+[data-theme="dark"] .falls-away { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .falls-away .item-label { color: #555555; }
+[data-theme="dark"] .falls-away p { color: #BBBBBB; }
+[data-theme="dark"] .progression { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .stage { border-color: #2A2A2A; }
+[data-theme="dark"] .stage-label, [data-theme="dark"] .stage .needs { color: #555555; }
+[data-theme="dark"] .stage p { color: #BBBBBB; }
+[data-theme="dark"] .essay-nav { border-color: #222222; }
+[data-theme="dark"] .essay-nav-label { color: #555555; }
+[data-theme="dark"] .essay-nav a { color: #EEEEEE; }
+[data-theme="dark"] .site-footer { background: #111111; border-color: #222222; }
+[data-theme="dark"] .footer-brand-link { color: #EEEEEE; }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col h4 { color: #888888; }
+[data-theme="dark"] .footer-tagline { color: #555555; }
+[data-theme="dark"] .share-btn { background: #333333; color: #EEEEEE; }
+[data-theme="dark"] .toc-label { color: #555555; }
+[data-theme="dark"] .toc-nav a { color: #444444; }
+[data-theme="dark"] .toc-nav a:hover { color: #888888; padding-left: 16px; }
+[data-theme="dark"] .toc-nav a.active { color: #EEEEEE; border-left-color: #EEEEEE; }
+.poa-nav-right { display: flex; align-items: center; gap: 24px; }
+.theme-toggle { background: none; border: none; cursor: pointer; padding: 2px; display: flex; align-items: center; gap: 6px; }
+.toggle-track { width: 40px; height: 22px; background: #DDDDDD; border-radius: 11px; position: relative; transition: background 0.25s; display: block; flex-shrink: 0; }
+[data-theme="dark"] .toggle-track { background: #555555; }
+.toggle-knob { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+[data-theme="dark"] .toggle-knob { transform: translateX(18px); background: #EEEEEE; }
+.moon-icon { color: #CCCCCC; flex-shrink: 0; transition: color 0.25s; display: block; }
+[data-theme="dark"] .moon-icon { color: #DDDDDD; }
 </style>
 </head>
 <body>
@@ -364,6 +415,16 @@ h1 {
     <div class="essay-meta">Paradox of Acceptance · Essays</div>
   </div>
 
+<div class="essay-content-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-nav">
+      <li><a href="#the-progression-nobody-maps">The Progression Nobody Maps</a></li>
+      <li><a href="#the-infrastructure-question">The Infrastructure Question</a></li>
+      <li><a href="#the-app-that-deletes-itself">The App That Deletes Itself</a></li>
+      <li><a href="#not-fraud-but-a-tension">Not Fraud, but a Tension</a></li>
+    </ul>
+  </aside>
   <div class="essay-body">
     <p>There's a teaching that shows up across the contemplative traditions, phrased differently each time but pointing at the same thing: the goal of meditation is not to produce some special state. It's to recognize something already here.</p>
 
@@ -373,7 +434,7 @@ h1 {
 
     <p>This is where it gets structurally interesting.</p>
 
-    <h2>The Progression Nobody Maps</h2>
+    <h2 id="the-progression-nobody-maps">The Progression Nobody Maps</h2>
 
     <p>Most meditation apps and programs don't distinguish between three very different relationships a person can have with the practice:</p>
 
@@ -397,7 +458,7 @@ h1 {
 
     <p>The question I keep returning to is what Stage 3 actually requires.</p>
 
-    <h2>The Infrastructure Question</h2>
+    <h2 id="the-infrastructure-question">The Infrastructure Question</h2>
 
     <p>Consider what a meditation app provides at Stage 3. A new ten-minute guided session every day. New teachers with new framings. Theoretical lectures and long-form conversations. A timer, a streak counter, a community.</p>
 
@@ -407,7 +468,7 @@ h1 {
 
     <p>Do you need daily guided sessions to do that? At some point, isn't the infrastructure less about supporting the practice and more about continuing to exist as a product?</p>
 
-    <h2>The App That Deletes Itself</h2>
+    <h2 id="the-app-that-deletes-itself">The App That Deletes Itself</h2>
 
     <p>Here's what I find interesting: the teaching itself implies its own obsolescence. The best meditation instruction, taken seriously, should eventually make the teacher unnecessary. That's not a failure of the teaching — it's the whole point. You're not supposed to need a guide forever. The guide is showing you something about your own mind. Once you've seen it, the seeing is yours.</p>
 
@@ -415,7 +476,7 @@ h1 {
 
     <p>No major meditation app does this. The business model points the other direction — more content, more teachers, more reasons to open the app tomorrow. Daily streaks. New courses. The implicit message is that you always need more, which is precisely what the teaching says you don't.</p>
 
-    <h2>Not Fraud, but a Tension</h2>
+    <h2 id="not-fraud-but-a-tension">Not Fraud, but a Tension</h2>
 
     <p>I want to be clear: I don't think this makes anyone dishonest. Building a subscription business around contemplative instruction involves real tradeoffs, and the people doing it are mostly doing it thoughtfully. The instruction itself is often excellent. The content is often genuinely worth engaging with, especially at Stages 1 and 2.</p>
 
@@ -425,6 +486,7 @@ h1 {
 
     <p>I genuinely don't know. But I notice that the question tends to get asked by practitioners, not by the people building the products.</p>
   </div>
+</div>
 
   <div class="essay-nav">
     <div class="essay-nav-label">Also in this series</div>
@@ -474,5 +536,23 @@ function copyLink() {
 }
 </script>
 
+<script>
+(function() {
+  var links = document.querySelectorAll('.toc-nav a');
+  if (!links.length) return;
+  var ids = Array.from(links).map(function(a) { return a.getAttribute('href').slice(1); });
+  function update() {
+    var top = window.scrollY + 100;
+    var cur = ids[0];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.offsetTop <= top) cur = ids[i];
+    }
+    links.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', update, {passive: true});
+  update();
+})();
+</script>
 </body>
 </html>

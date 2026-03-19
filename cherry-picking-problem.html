@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -345,6 +346,56 @@ h1 {
   .site-footer { padding: 40px 20px 32px; }
 }
 
+
+/* ---- TOC + DARK MODE ---- */
+@media (min-width: 980px) {
+  article { max-width: 920px; }
+  .essay-content-layout { display: flex; gap: 52px; align-items: flex-start; }
+  .toc-sidebar { width: 156px; flex-shrink: 0; position: sticky; top: 52px; align-self: flex-start; }
+  .essay-body { flex: 1; min-width: 0; max-width: 640px; }
+}
+.toc-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CCCCCC; margin-bottom: 16px; }
+.toc-nav { list-style: none; }
+.toc-nav a { font-family: 'Inter', sans-serif; font-size: 12.5px; color: #BBBBBB; text-decoration: none; display: block; padding: 5px 0 5px 12px; line-height: 1.4; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s, padding-left 0.2s; }
+.toc-nav a:hover { color: #555555; padding-left: 16px; }
+.toc-nav a.active { color: #111111; font-weight: 500; border-left-color: #111111; padding-left: 16px; }
+[data-theme="dark"] body { background: #111111; color: #EEEEEE; }
+[data-theme="dark"] h1, [data-theme="dark"] h2 { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav { background: #111111; border-color: #222222; }
+[data-theme="dark"] .poa-nav-brand { color: #EEEEEE; }
+[data-theme="dark"] .poa-nav-links a { color: #888888; }
+[data-theme="dark"] .poa-nav-links a.active, [data-theme="dark"] .poa-nav-links a:hover { color: #EEEEEE; }
+[data-theme="dark"] .essay-body p { color: #BBBBBB; }
+[data-theme="dark"] .essay-body h2 { color: #EEEEEE; }
+[data-theme="dark"] .essay-meta { color: #555555; }
+[data-theme="dark"] .separator { color: #333333; }
+[data-theme="dark"] .falls-away { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .falls-away .item-label { color: #555555; }
+[data-theme="dark"] .falls-away p { color: #BBBBBB; }
+[data-theme="dark"] .progression { background: #1A1A1A; border-color: #2A2A2A; }
+[data-theme="dark"] .stage { border-color: #2A2A2A; }
+[data-theme="dark"] .stage-label, [data-theme="dark"] .stage .needs { color: #555555; }
+[data-theme="dark"] .stage p { color: #BBBBBB; }
+[data-theme="dark"] .essay-nav { border-color: #222222; }
+[data-theme="dark"] .essay-nav-label { color: #555555; }
+[data-theme="dark"] .essay-nav a { color: #EEEEEE; }
+[data-theme="dark"] .site-footer { background: #111111; border-color: #222222; }
+[data-theme="dark"] .footer-brand-link { color: #EEEEEE; }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col h4 { color: #888888; }
+[data-theme="dark"] .footer-tagline { color: #555555; }
+[data-theme="dark"] .share-btn { background: #333333; color: #EEEEEE; }
+[data-theme="dark"] .toc-label { color: #555555; }
+[data-theme="dark"] .toc-nav a { color: #444444; }
+[data-theme="dark"] .toc-nav a:hover { color: #888888; padding-left: 16px; }
+[data-theme="dark"] .toc-nav a.active { color: #EEEEEE; border-left-color: #EEEEEE; }
+.poa-nav-right { display: flex; align-items: center; gap: 24px; }
+.theme-toggle { background: none; border: none; cursor: pointer; padding: 2px; display: flex; align-items: center; gap: 6px; }
+.toggle-track { width: 40px; height: 22px; background: #DDDDDD; border-radius: 11px; position: relative; transition: background 0.25s; display: block; flex-shrink: 0; }
+[data-theme="dark"] .toggle-track { background: #555555; }
+.toggle-knob { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+[data-theme="dark"] .toggle-knob { transform: translateX(18px); background: #EEEEEE; }
+.moon-icon { color: #CCCCCC; flex-shrink: 0; transition: color 0.25s; display: block; }
+[data-theme="dark"] .moon-icon { color: #DDDDDD; }
 </style>
 </head>
 <body>
@@ -364,6 +415,18 @@ h1 {
     <div class="essay-meta">Paradox of Acceptance · Essays</div>
   </div>
 
+<div class="essay-content-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-nav">
+      <li><a href="#the-move">The Move</a></li>
+      <li><a href="#the-atheist-analogy">The Atheist Analogy</a></li>
+      <li><a href="#the-teachers-who-see-it">The Teachers Who See It</a></li>
+      <li><a href="#why-the-community-doesnt-say-this">Why the Community Doesn't Say This</a></li>
+      <li><a href="#what-cherrypicking-actually-looks-like">What Cherry-Picking Actually Looks Like</a></li>
+      <li><a href="#the-honest-position">The Honest Position</a></li>
+    </ul>
+  </aside>
   <div class="essay-body">
     <p>I was trying to explain non-dual meditation to my father. He is a man whose entire career was built on the kind of ego-driven motivation that mindfulness practitioners are supposed to dissolve: fear of failure, chip on his shoulder, the need to prove something to people who doubted him. I was halfway through describing how you can learn to see thoughts as appearances in consciousness rather than instructions from a central self, and I found myself making an argument I couldn't finish.</p>
 
@@ -375,7 +438,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>The Move</h2>
+    <h2 id="the-move">The Move</h2>
 
     <p>There is a pattern that shows up across the meditation world, and it's so common that it has become nearly invisible. Practitioners who want liberation from the bad parts of ego while keeping the good parts. Freedom from insecurity but not from ambition. Release from rumination but not from competitive drive. The dissolution of the self that worries about what people think, but the preservation of the self that works eighty-hour weeks to build something meaningful.</p>
 
@@ -389,7 +452,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>The Atheist Analogy</h2>
+    <h2 id="the-atheist-analogy">The Atheist Analogy</h2>
 
     <p>The non-dual traditions make a specific claim about the nature of the self. It's not that the self is bad, or that the self is too loud, or that the self needs to be quieted. The claim is that the self — the felt sense that there is a thinker behind your thoughts, a doer behind your actions, a central agent running the show — is, upon close inspection, not there. Thoughts think themselves. Decisions arise from conditions. The sense of being a separate author of your experience is itself an appearance in consciousness, rather than the thing that consciousness belongs to.</p>
 
@@ -401,7 +464,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>The Teachers Who See It</h2>
+    <h2 id="the-teachers-who-see-it">The Teachers Who See It</h2>
 
     <p>The sharper contemplative teachers acknowledge this tension directly, though it rarely makes it into the marketing materials.</p>
 
@@ -415,7 +478,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>Why the Community Doesn't Say This</h2>
+    <h2 id="why-the-community-doesnt-say-this">Why the Community Doesn't Say This</h2>
 
     <p>One of the most experienced non-dual teachers in the West, someone with decades of practice and teaching behind them, describes the theoretical possibility of what you might call a "functional ego": a sense of self that has been stripped of personal identification but retains enough structure to navigate the world. This person describes it with what seems like genuine conviction — the self as a tool you pick up and put down, identification as a choice rather than a compulsion — and then immediately laughs at the idea. The laugh is the most honest part. They know it doesn't work like that in practice. The self that picks up the tool is the self that <em>is</em> the tool.</p>
 
@@ -429,7 +492,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>What Cherry-Picking Actually Looks Like</h2>
+    <h2 id="what-cherrypicking-actually-looks-like">What Cherry-Picking Actually Looks Like</h2>
 
     <p>The meditator who sits with difficult emotions for forty minutes each morning, practicing equanimity and non-attachment, and then works eighty-hour weeks chasing a promotion they believe will make them feel successful. The practitioner who has "seen through the self" on multiple retreats but still checks their follower count when they post something about having seen through the self. The teacher who gives talks about the emptiness of personal achievement and then feels genuine disappointment when fewer people show up than expected.</p>
 
@@ -445,7 +508,7 @@ h1 {
 
     <div class="separator">· · ·</div>
 
-    <h2>The Honest Position</h2>
+    <h2 id="the-honest-position">The Honest Position</h2>
 
     <p>If the non-dual insight is real — and I think it is, at least as a description of something that can be directly observed in meditation — then it applies to everything. It applies to the goals you love. It applies to the ambitions you're proud of. It applies to the meaningful work you do, the relationships you care about, the identity you've built around being someone who practices and understands these things. The self that you're trying to see through doesn't stop at the border of your neuroses. It extends through your entire sense of being someone, doing something, heading somewhere.</p>
 
@@ -465,6 +528,7 @@ h1 {
 
     <p>I keep coming back to the conversation with my father. He asked, sensibly, whether the practice would help him or hurt him. And the honest answer, which I didn't give him, is: it depends on what you mean by "you." The practice would almost certainly help the person who suffers from insecurity and rumination. It would almost certainly threaten the person who gets things done through sheer force of identified will. And those two people are the same person. That's the whole problem. That might be the most that can be said. Whether it's enough is a question I don't think anyone is in a position to answer.</p>
   </div>
+</div>
 
   <div class="essay-nav">
     <div class="essay-nav-label">Also in this series</div>
@@ -516,5 +580,23 @@ function copyLink() {
 }
 </script>
 
+<script>
+(function() {
+  var links = document.querySelectorAll('.toc-nav a');
+  if (!links.length) return;
+  var ids = Array.from(links).map(function(a) { return a.getAttribute('href').slice(1); });
+  function update() {
+    var top = window.scrollY + 100;
+    var cur = ids[0];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.offsetTop <= top) cur = ids[i];
+    }
+    links.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  }
+  window.addEventListener('scroll', update, {passive: true});
+  update();
+})();
+</script>
 </body>
 </html>
